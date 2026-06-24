@@ -993,6 +993,222 @@
             overflow-x: auto;
         }
 
+        /* ═══════════════════════════════════
+           PROSPECÇÃO COMPLETA - DESTAQUE
+        ═══════════════════════════════════ */
+        tr.prospect-complete td {
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%) !important;
+            border-bottom: 1px solid #bbf7d0;
+        }
+        tr.prospect-complete td:first-child {
+            border-left: 3px solid #16a34a;
+        }
+        tr.prospect-complete:hover td {
+            background: #dcfce7 !important;
+        }
+        .prospect-complete-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            background: #dcfce7;
+            color: #15803d;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 20px;
+            border: 1px solid #86efac;
+            margin-left: 6px;
+            letter-spacing: 0.3px;
+        }
+
+        /* ═══════════════════════════════════
+           NOTIFICAÇÃO MASTER - PROSPECÇÃO COMPLETA
+        ═══════════════════════════════════ */
+        .master-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #fff;
+            border: 1.5px solid #86efac;
+            border-radius: var(--r);
+            padding: 16px 18px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            z-index: 10000;
+            max-width: 340px;
+            animation: slideInNotif 0.3s ease;
+        }
+        @keyframes slideInNotif {
+            from { transform: translateX(120%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .notif-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        .notif-icon {
+            width: 32px;
+            height: 32px;
+            background: #dcfce7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #16a34a;
+            flex-shrink: 0;
+        }
+        .notif-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text);
+        }
+        .notif-sub {
+            font-size: 11px;
+            color: var(--sub);
+        }
+        .notif-body {
+            font-size: 12px;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        .notif-body strong { color: var(--green); }
+        .notif-close {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            cursor: pointer;
+            color: var(--muted);
+            font-size: 18px;
+            background: none;
+            border: none;
+            padding: 0;
+            line-height: 1;
+        }
+        .notif-close:hover { color: var(--text); }
+
+        /* ═══════════════════════════════════
+           FILTRO DE MÊS/ANO - MINHAS VENDAS
+        ═══════════════════════════════════ */
+        .date-filter-group {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            border-radius: var(--r-sm);
+            padding: 4px 10px;
+        }
+        .date-filter-group label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--sub);
+            white-space: nowrap;
+        }
+        .date-filter-group select {
+            padding: 4px 8px;
+            border: none;
+            background: transparent;
+            font-size: 13px;
+            color: var(--text);
+            outline: none;
+            cursor: pointer;
+        }
+        .filter-active-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: var(--accent-lt);
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 1px solid #c7d2fe;
+        }
+        .filter-active-badge .clear-filter {
+            cursor: pointer;
+            font-size: 14px;
+            line-height: 1;
+            margin-left: 2px;
+        }
+        .filter-active-badge .clear-filter:hover { color: var(--accent-hover); }
+
+        /* ═══════════════════════════════════
+           IMPRESSÃO DE RELATÓRIOS
+        ═══════════════════════════════════ */
+        .btn-print {
+            background: var(--surface);
+            border: 1.5px solid var(--border2);
+            color: var(--sub);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border-radius: var(--r-sm);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .btn-print:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-lt);
+        }
+
+        @media print {
+            /* Ocultar tudo por padrão */
+            body * { visibility: hidden; }
+
+            /* Mostrar apenas o conteúdo do relatório */
+            #print-report-area, #print-report-area * { visibility: visible; }
+            #print-report-area {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background: #fff;
+            }
+
+            /* Reset de layout para impressão */
+            .sidebar, .topbar, .filter-bar, .btn-print,
+            #topbar-actions, .btn, button,
+            .nav-item, .sidebar-footer { display: none !important; }
+
+            .main-wrap { margin-left: 0 !important; }
+            .content { padding: 0 !important; }
+
+            .print-header {
+                display: block !important;
+                text-align: center;
+                margin-bottom: 20px;
+                padding: 16px 0;
+                border-bottom: 2px solid #e4e6f0;
+            }
+            .print-header h2 {
+                font-size: 20px;
+                font-weight: 700;
+                color: #1a1d2e;
+                margin-bottom: 4px;
+            }
+            .print-header p {
+                font-size: 12px;
+                color: #6b6f8a;
+            }
+
+            table { page-break-inside: auto; }
+            tr { page-break-inside: avoid; page-break-after: auto; }
+            thead { display: table-header-group; }
+            .card { box-shadow: none !important; border: 1px solid #e4e6f0 !important; page-break-inside: avoid; margin-bottom: 16px; }
+            .two-col { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .stat-card { page-break-inside: avoid; }
+            tbody td, thead th { padding: 8px 12px !important; font-size: 11px !important; }
+            .badge { font-size: 10px !important; }
+            .seller-badge { font-size: 10px !important; }
+        }
+
+        .print-header { display: none; }
       
     </style>
 </head>
@@ -1169,19 +1385,45 @@
 
                 <!-- TODAS AS PROSPECÇÕES -->
                 <div class="page" id="p-all-prospects">
+                    <!-- Stats de prospecções -->
+                    <div class="stats-grid" id="prospect-stats-grid" style="margin-bottom:20px;"></div>
+
                     <div class="filter-bar">
-                        <input type="text" id="fp-search" placeholder="Buscar leads..." oninput="renderAllProspects()"
-                            style="min-width:240px">
-                        <input type="date" id="fp-start-date" onchange="renderAllProspects()">
-                        <input type="date" id="fp-end-date" onchange="renderAllProspects()">
+                        <input type="text" id="fp-search" placeholder="Buscar leads..." oninput="renderAllProspects()" style="min-width:220px">
                         <select id="fp-seller" onchange="renderAllProspects()">
                             <option value="">Todos os vendedores</option>
-                            <option value="Ana">Ana</option>
-                            <option value="Ricardo">Ricardo</option>
-                            <option value="Nice">Nice</option>
                         </select>
-                        <button class="btn btn-primary" onclick="renderAllProspects()">Filtrar</button>
+                        <select id="fp-status" onchange="renderAllProspects()">
+                            <option value="">Todos os status</option>
+                            <option value="Contato inicial">Contato inicial</option>
+                            <option value="Em negociação">Em negociação</option>
+                            <option value="Proposta enviada">Proposta enviada</option>
+                            <option value="Convertido">Convertido</option>
+                            <option value="Perdido">Perdido</option>
+                        </select>
+                        <div class="date-filter-group">
+                            <label><i class="material-icons" style="font-size:14px;vertical-align:middle;">calendar_month</i> Mês:</label>
+                            <select id="fp-month" onchange="renderAllProspects()">
+                                <option value="">Todos</option>
+                                <option value="1">Janeiro</option><option value="2">Fevereiro</option>
+                                <option value="3">Março</option><option value="4">Abril</option>
+                                <option value="5">Maio</option><option value="6">Junho</option>
+                                <option value="7">Julho</option><option value="8">Agosto</option>
+                                <option value="9">Setembro</option><option value="10">Outubro</option>
+                                <option value="11">Novembro</option><option value="12">Dezembro</option>
+                            </select>
+                        </div>
+                        <div class="date-filter-group">
+                            <label>Ano:</label>
+                            <select id="fp-year" onchange="renderAllProspects()">
+                                <option value="">Todos</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-ghost" style="padding:6px 10px;font-size:12px;" onclick="clearProspectFilters()">
+                            <i class="material-icons" style="font-size:14px;">clear</i> Limpar
+                        </button>
                     </div>
+                    <div id="fp-active-filter" style="margin-bottom:12px;"></div>
                     <div class="card">
                         <div class="table-wrap">
                             <table>
@@ -1209,24 +1451,29 @@
 
                 <!-- RELATÓRIOS -->
                 <div class="page" id="p-reports">
+                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:16px;">
+                        <div class="filter-bar" style="margin-bottom:0; flex:1;">
+                            <select id="rep-seller" onchange="renderReports()">
+                                <option value="">— Toda a Equipe —</option>
+                                <option value="Ana">Ana</option>
+                                <option value="Ricardo">Ricardo</option>
+                                <option value="Nice">Nice</option>
+                            </select>
+                            <input type="date" id="rep-start-date" onchange="renderReports()">
+                            <input type="date" id="rep-end-date" onchange="renderReports()">
+                            <button class="btn btn-primary" onclick="renderReports()">Filtrar</button>
+                        </div>
+                        <button class="btn-print" onclick="printReport()">
+                            <i class="material-icons" style="font-size:17px;">print</i> Imprimir Relatório
+                        </button>
+                    </div>
+                    <div id="print-report-area">
+                        <div class="print-header" id="print-header-area">
+                            <h2>Relatório de Vendas — FAUKO</h2>
+                            <p id="print-header-sub"></p>
+                        </div>
                     <div id="report-stats-cards"
                         style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:16px; margin-bottom:20px;">
-                    </div>
-                    <div class="filter-bar">
-                        <select id="rep-seller">
-                            <option value="">— Toda a Equipe —</option>
-                            <option value="Ana">Ana</option>
-                            <option value="Ricardo">Ricardo</option>
-                            <option value="Nice">Nice</option>
-                        </select>
-                        <input type="date" id="rep-start-date">
-                        <input type="date" id="rep-end-date">
-                        <button class="btn btn-primary" onclick="renderReports()">Filtrar</button>
-                    </div>
-                    <div class="filter-bar">
-                        <span style="font-size:12px; font-weight:600; color:var(--sub);">Filtrar Relatórios:</span>
-                        <input type="date" id="rep-start-date" onchange="renderReports()">
-                        <input type="date" id="rep-end-date" onchange="renderReports()">
                     </div>
                     <div class="two-col">
                         <div class="card">
@@ -1262,6 +1509,7 @@
                             </table>
                         </div>
                     </div>
+                    </div><!-- /print-report-area -->
                 </div>
 
                 <!-- GERENCIAR USUÁRIOS -->
@@ -1326,7 +1574,41 @@
                             <option value="Em andamento">Em andamento</option>
                             <option value="Cancelada">Cancelada</option>
                         </select>
+                        <div class="date-filter-group">
+                            <label><i class="material-icons" style="font-size:14px;vertical-align:middle;">calendar_month</i> Mês:</label>
+                            <select id="fm-month" onchange="renderMy()">
+                                <option value="">Todos</option>
+                                <option value="1">Janeiro</option>
+                                <option value="2">Fevereiro</option>
+                                <option value="3">Março</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Maio</option>
+                                <option value="6">Junho</option>
+                                <option value="7">Julho</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Setembro</option>
+                                <option value="10">Outubro</option>
+                                <option value="11">Novembro</option>
+                                <option value="12">Dezembro</option>
+                            </select>
+                        </div>
+                        <div class="date-filter-group">
+                            <label>Ano:</label>
+                            <select id="fm-year" onchange="renderMy()">
+                                <option value="">Todos</option>
+                            </select>
+                        </div>
+                        <div class="date-filter-group">
+                            <label>Dia:</label>
+                            <select id="fm-day" onchange="renderMy()">
+                                <option value="">Todos</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-ghost" style="padding:6px 10px; font-size:12px;" onclick="clearMyFilters()">
+                            <i class="material-icons" style="font-size:14px;">clear</i> Limpar
+                        </button>
                     </div>
+                    <div id="fm-active-filter" style="margin-bottom:12px;"></div>
                     <div class="card">
                         <div class="table-wrap">
                             <table>
@@ -1503,7 +1785,7 @@
 
         const SELLER_COLORS = { Ana: '#7c3aed', Ricardo: '#0284c7', Nice: '#db2777' };
         const SELLER_CLASS = { Ana: 'seller-ana', Ricardo: 'seller-ricardo', Nice: 'seller-nice' };
-        const COMM_RATES = { Ana: 8, Ricardo: 7, Nice: 9 };
+        const COMM_RATES = {}; // Todos os vendedores: 2,5%
 
         let dynamicUsers = { ...DEFAULT_USERS };
         let sales = [];
@@ -1528,6 +1810,7 @@
                 if (currentUser) {
                     if (typeof renderMyProspects === 'function') renderMyProspects();
                     if (typeof renderAllProspects === 'function') renderAllProspects();
+                    if (currentUser.key === 'master') checkAndNotifyCompleteProspects();
                 }
             });
 
@@ -1539,6 +1822,7 @@
                     currentUser = { key: currentUser.key, ...dynamicUsers[currentUser.key] };
                     renderProfile();
                 }
+                refreshSellerSelects();
             });
 
             db.collection('goals').onSnapshot(snapshot => {
@@ -1604,6 +1888,7 @@
 
             document.getElementById('sb-role').textContent = u.role;
             buildNav();
+            refreshSellerSelects();
             if (u.key === 'master') goTo('dashboard'); else goTo('my-sales');
         }
 
@@ -1681,7 +1966,7 @@
         function badgeStatus(s) { const m = { 'Concluída': 'green', 'Em andamento': 'amber', 'Cancelada': 'red' }; return `<span class="badge badge-${m[s] || 'blue'}">${s}</span>`; }
         function badgeProspectStatus(s) { const m = { 'Contato inicial': 'blue', 'Em negociação': 'amber', 'Proposta enviada': 'blue', 'Convertido': 'green', 'Perdido': 'red' }; return `<span class="badge badge-${m[s] || 'blue'}">${s}</span>`; }
         function sellerBadge(name) { return `<span class="seller-badge ${SELLER_CLASS[name] || 'badge-blue'}">${name}</span>`; }
-        function commVal(s) { if (s.status === 'Cancelada') return 0; return s.value * (COMM_RATES[s.seller] || 7) / 100; }
+        function commVal(s) { if (s.status === 'Cancelada') return 0; return s.value * 2.5 / 100; }
 
         function toast(msg, type = 'success') {
             const t = document.createElement('div');
@@ -1701,7 +1986,8 @@
             const start = document.getElementById('db-start-date').value;
             const end = document.getElementById('db-end-date').value;
 
-            const fSales = sales.filter(s => (!start || s.date >= start) && (!end || s.date <= end));
+            const activeSellers = new Set(getActiveSellers().map(s => s.name));
+            const fSales = sales.filter(s => (!start || s.date >= start) && (!end || s.date <= end) && activeSellers.has(s.seller));
             const fPros = prospects.filter(p => (!start || p.date >= start) && (!end || p.date <= end));
 
             const active = fSales.filter(s => s.status !== 'Cancelada');
@@ -1738,31 +2024,32 @@
                 </div>
             `;
 
-            const sellers = ['Ana', 'Ricardo', 'Nice'];
-            const cols = ['var(--ana)', 'var(--ric)', 'var(--nic)'];
-            const maxV = Math.max(...sellers.map(sel => active.filter(s => s.seller === sel).reduce((a, s) => a + s.value, 0))) || 1;
+            // Usa apenas vendedores ativos em dynamicUsers (exclui master e removidos)
+            const sellers = getActiveSellers().map(s => s.name);
+            const maxV = Math.max(...sellers.map(sel => active.filter(s => s.seller === sel).reduce((a, s) => a + s.value, 0)), 1);
 
-            document.getElementById('chart-vendors').innerHTML = sellers.map((sel, i) => {
+            document.getElementById('chart-vendors').innerHTML = sellers.length ? sellers.map(sel => {
                 const v = active.filter(s => s.seller === sel).reduce((a, s) => a + s.value, 0);
+                const color = SELLER_COLORS[sel] || dynamicUsers[Object.keys(dynamicUsers).find(k => dynamicUsers[k].name === sel)]?.color || 'var(--accent)';
                 return `<div class="bar-row">
                   <div class="bar-lbl">${sel}</div>
-                  <div class="bar-track"><div class="bar-fill" style="width:${Math.round(v / maxV * 100)}%;background:${cols[i]}"></div></div>
+                  <div class="bar-track"><div class="bar-fill" style="width:${Math.round(v / maxV * 100)}%;background:${color}"></div></div>
                   <div class="bar-val">${fmtBRL(v)}</div>
                 </div>`;
-            }).join('');
+            }).join('') : '<p style="padding:20px;color:var(--muted);font-size:13px;">Nenhum vendedor cadastrado.</p>';
 
             const ranked = sellers.map(sel => ({
                 name: sel,
                 val: active.filter(s => s.seller === sel).reduce((a, s) => a + s.value, 0)
             })).sort((a, b) => b.val - a.val);
 
-            document.getElementById('ranking').innerHTML = ranked.map((r, i) => `
+            document.getElementById('ranking').innerHTML = ranked.length ? ranked.map((r, i) => `
                 <div class="ranking-item">
                   <div class="rank-pos ${i === 0 ? 'rank-1' : i === 1 ? 'rank-2' : 'rank-3'}">${i + 1}</div>
                   <div class="rank-info"><div class="rn">${r.name}</div></div>
                   <div class="rank-val">${fmtBRL(r.val)}</div>
                 </div>
-            `).join('');
+            `).join('') : '<p style="padding:20px;color:var(--muted);font-size:13px;">Nenhum vendedor cadastrado.</p>';
 
             const now = new Date();
             const months = [];
@@ -1785,7 +2072,12 @@
             const fSel = document.getElementById('f-seller')?.value || '';
             const fSt = document.getElementById('f-status')?.value || '';
 
-            let rows = sales.filter(s => (!fSel || s.seller === fSel) && (!fSt || s.status === fSt) && (!search || s.client.toLowerCase().includes(search)));
+            const activeSellersSetA = new Set(getActiveSellers().map(s => s.name));
+            let rows = sales.filter(s =>
+                (fSel ? s.seller === fSel : activeSellersSetA.has(s.seller)) &&
+                (!fSt || s.status === fSt) &&
+                (!search || s.client.toLowerCase().includes(search))
+            );
 
             document.getElementById('all-body').innerHTML = rows.map(s => `
                 <tr>
@@ -1794,22 +2086,193 @@
             `).join('');
         }
 
-        function renderAllProspects() {
-            const search = (document.getElementById('fp-search')?.value || '').toLowerCase();
-            const fSel = document.getElementById('fp-seller')?.value || '';
+        // ═══════════════════════════════════
+        // PROSPECÇÃO COMPLETA - LÓGICA
+        // ═══════════════════════════════════
+        const PROSPECT_REQUIRED_FIELDS = ['date','client','cnpj','segment','city','contact','phone','email','products','status','next','returndate'];
+        const notifiedCompleteProspects = new Set();
 
-            let rows = prospects.filter(p => {
-                const matchTxt = !search || p.client.toLowerCase().includes(search) || (p.contact && p.contact.toLowerCase().includes(search));
-                const matchSel = !fSel || p.seller === fSel;
-                return matchTxt && matchSel;
+        function isProspectComplete(p) {
+            return PROSPECT_REQUIRED_FIELDS.every(f => p[f] && String(p[f]).trim() !== '');
+        }
+
+        function showMasterNotification(p) {
+            if (!currentUser || currentUser.key !== 'master') return;
+            if (notifiedCompleteProspects.has(p.id)) return;
+            notifiedCompleteProspects.add(p.id);
+
+            const now = new Date();
+            const dtStr = now.toLocaleDateString('pt-BR') + ' às ' + now.toLocaleTimeString('pt-BR', {hour:'2-digit',minute:'2-digit'});
+
+            const notif = document.createElement('div');
+            notif.className = 'master-notification';
+            notif.style.cssText = 'top:' + (20 + document.querySelectorAll('.master-notification').length * 150) + 'px';
+            notif.innerHTML = `
+                <button class="notif-close" onclick="this.parentElement.remove()"><i class="material-icons" style="font-size:18px;">close</i></button>
+                <div class="notif-header">
+                    <div class="notif-icon"><i class="material-icons" style="font-size:17px;">task_alt</i></div>
+                    <div>
+                        <div class="notif-title">✅ Prospecção Completa!</div>
+                        <div class="notif-sub">Todos os campos preenchidos</div>
+                    </div>
+                </div>
+                <div class="notif-body">
+                    <strong>${p.client}</strong><br>
+                    Responsável: ${p.seller}<br>
+                    Concluída em: ${dtStr}
+                </div>
+            `;
+            document.body.appendChild(notif);
+            setTimeout(() => {
+                notif.style.transition = 'opacity 0.4s, transform 0.4s';
+                notif.style.opacity = '0';
+                notif.style.transform = 'translateX(120%)';
+                setTimeout(() => notif.remove(), 400);
+            }, 6000);
+        }
+
+        function checkAndNotifyCompleteProspects() {
+            if (!currentUser || currentUser.key !== 'master') return;
+            prospects.forEach(p => {
+                if (isProspectComplete(p) && !notifiedCompleteProspects.has(p.id)) {
+                    showMasterNotification(p);
+                }
+            });
+        }
+
+        function getActiveSellers() {
+            // Retorna vendedores que existem em dynamicUsers (exceto master)
+            return Object.keys(dynamicUsers).filter(k => k !== 'master').map(k => ({ key: k, name: dynamicUsers[k].name }));
+        }
+
+        function refreshSellerSelects() {
+            // Atualiza todos os selects de vendedor no sistema dinamicamente
+            const sellers = getActiveSellers();
+            const selects = [
+                { id: 'fp-seller', allLabel: 'Todos os vendedores' },
+                { id: 'f-seller',  allLabel: 'Todos os vendedores' },
+                { id: 'rep-seller', allLabel: '— Toda a Equipe —' },
+            ];
+            selects.forEach(({ id, allLabel }) => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                const cur = el.value;
+                el.innerHTML = `<option value="">${allLabel}</option>` +
+                    sellers.map(s => `<option value="${s.name}" ${s.name === cur ? 'selected' : ''}>${s.name}</option>`).join('');
+            });
+        }
+
+        function clearProspectFilters() {
+            ['fp-search','fp-seller','fp-status','fp-month','fp-year'].forEach(id => {
+                const el = document.getElementById(id); if (el) el.value = '';
+            });
+            renderAllProspects();
+        }
+
+        function renderAllProspects() {
+            const search   = (document.getElementById('fp-search')?.value || '').toLowerCase();
+            const fSel     = document.getElementById('fp-seller')?.value || '';
+            const fSt      = document.getElementById('fp-status')?.value || '';
+            const fMonth   = document.getElementById('fp-month')?.value || '';
+            const fYear    = document.getElementById('fp-year')?.value || '';
+
+            // Populate year dropdown from prospects data
+            const yearSel = document.getElementById('fp-year');
+            if (yearSel) {
+                const years = [...new Set(prospects.map(p => new Date(p.date + 'T12:00').getFullYear()))].sort((a,b) => b-a);
+                const curYear = yearSel.value;
+                yearSel.innerHTML = '<option value="">Todos</option>' + years.map(y => `<option value="${y}" ${y == curYear ? 'selected':''}>${y}</option>`).join('');
+            }
+
+            // Refresh seller selects to reflect current users
+            refreshSellerSelects();
+
+            const MONTHS_PT = ['','Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+
+            // ── Stats cards (sobre TODOS os prospects do período, sem filtro de texto) ──
+            const activeSellersSetP = new Set(getActiveSellers().map(s => s.name));
+            const forStats = prospects.filter(p => {
+                // Excluir prospects de vendedores removidos (a menos que filtro específico esteja ativo)
+                if (!fSel && !activeSellersSetP.has(p.seller)) return false;
+                if (fSel && p.seller !== fSel) return false;
+                if (fSt && p.status !== fSt) return false;
+                if (fMonth || fYear) {
+                    const d = new Date(p.date + 'T12:00');
+                    if (fMonth && (d.getMonth()+1) != parseInt(fMonth)) return false;
+                    if (fYear && d.getFullYear() != parseInt(fYear)) return false;
+                }
+                return true;
             });
 
-            document.getElementById('all-prospects-body').innerHTML = rows.map(p => `
-                <tr>
-                  <td>${fmtDate(p.date)}</td><td>${p.client}</td><td>${p.cnpj || '—'}</td><td>${p.type || '—'}</td><td>${p.segment || '—'}</td><td>${p.city || '—'}</td><td>${p.contact || '—'}</td><td>${p.phone || '—'}</td><td>${p.products}</td><td>${badgeProspectStatus(p.status)}</td><td>${sellerBadge(p.seller)}</td>
+            const totalP   = forStats.length;
+            const convP    = forStats.filter(p => p.status === 'Convertido').length;
+            const activeP  = forStats.filter(p => p.status !== 'Convertido' && p.status !== 'Perdido').length;
+            const perdidoP = forStats.filter(p => p.status === 'Perdido').length;
+            const convRate = totalP > 0 ? Math.round((convP / totalP) * 100) : 0;
+
+            const statsGrid = document.getElementById('prospect-stats-grid');
+            if (statsGrid) {
+                const periodLabel = [fMonth ? MONTHS_PT[parseInt(fMonth)] : '', fYear || ''].filter(Boolean).join(' ') || 'Geral';
+                statsGrid.innerHTML = `
+                    <div class="stat-card c-accent">
+                        <div class="stat-icon" style="color:var(--accent)"><i class="material-icons">person_search</i></div>
+                        <div class="stat-label">Total de Leads</div>
+                        <div class="stat-value">${totalP}</div>
+                        <div class="stat-sub">Período: ${periodLabel}</div>
+                    </div>
+                    <div class="stat-card c-amber">
+                        <div class="stat-icon" style="color:var(--amber)"><i class="material-icons">pending_actions</i></div>
+                        <div class="stat-label">Em Negociação</div>
+                        <div class="stat-value">${activeP}</div>
+                        <div class="stat-sub">Leads em aberto</div>
+                    </div>
+                    <div class="stat-card c-green">
+                        <div class="stat-icon" style="color:var(--green)"><i class="material-icons">workspace_premium</i></div>
+                        <div class="stat-label">Convertidos</div>
+                        <div class="stat-value">${convP}</div>
+                        <div class="stat-sub">Taxa: ${convRate}%</div>
+                    </div>
+                    <div class="stat-card c-purple">
+                        <div class="stat-icon" style="color:var(--red)"><i class="material-icons">cancel</i></div>
+                        <div class="stat-label">Perdidos</div>
+                        <div class="stat-value">${perdidoP}</div>
+                        <div class="stat-sub">Leads encerrados</div>
+                    </div>
+                `;
+            }
+
+            // ── Filtro de tabela (inclui texto) ──
+            const rows = forStats.filter(p =>
+                !search || p.client.toLowerCase().includes(search) || (p.contact && p.contact.toLowerCase().includes(search))
+            );
+
+            // ── Badge de filtro ativo ──
+            const filterParts = [];
+            if (fSel) filterParts.push(fSel);
+            if (fSt) filterParts.push(fSt);
+            if (fMonth) filterParts.push(MONTHS_PT[parseInt(fMonth)]);
+            if (fYear) filterParts.push(fYear);
+            const activeFilterEl = document.getElementById('fp-active-filter');
+            if (activeFilterEl) {
+                activeFilterEl.innerHTML = filterParts.length ? `
+                    <span class="filter-active-badge">
+                        <i class="material-icons" style="font-size:13px;">filter_alt</i>
+                        Filtro: ${filterParts.join(' · ')}
+                        <span class="clear-filter" onclick="clearProspectFilters()" title="Limpar">×</span>
+                    </span>` : '';
+            }
+
+            document.getElementById('all-prospects-body').innerHTML = rows.length ? rows.map(p => {
+                const complete = isProspectComplete(p);
+                const completeBadge = complete ? '<span class="prospect-complete-badge"><i class="material-icons" style="font-size:10px;">verified</i>COMPLETO</span>' : '';
+                return `
+                <tr class="${complete ? 'prospect-complete' : ''}">
+                  <td>${fmtDate(p.date)}</td><td>${p.client}${completeBadge}</td><td>${p.cnpj || '—'}</td><td>${p.type || '—'}</td><td>${p.segment || '—'}</td><td>${p.city || '—'}</td><td>${p.contact || '—'}</td><td>${p.phone || '—'}</td><td>${p.products}</td><td>${badgeProspectStatus(p.status)}</td><td>${sellerBadge(p.seller)}</td>
                   <td><button class="btn btn-danger" style="padding:4px 8px;" onclick="deleteProspect('${p.id}')">Remover</button></td>
-                </tr>
-            `).join('');
+                </tr>`;
+            }).join('') : `<tr><td colspan="12"><div class="empty"><div class="empty-icon"><i class="material-icons">search_off</i></div><div class="empty-text">Nenhuma prospecção encontrada para os filtros selecionados.</div></div></td></tr>`;
+
+            checkAndNotifyCompleteProspects();
         }
 
         function renderReports() {
@@ -1817,7 +2280,11 @@
             const start = document.getElementById('rep-start-date')?.value || '';
             const end = document.getElementById('rep-end-date')?.value || '';
 
-            const fSales = sales.filter(s => (!fSel || s.seller === fSel) && (!start || s.date >= start) && (!end || s.date <= end));
+            const activeSellersSet = new Set(getActiveSellers().map(s => s.name));
+            const fSales = sales.filter(s =>
+                (fSel ? s.seller === fSel : activeSellersSet.has(s.seller)) &&
+                (!start || s.date >= start) && (!end || s.date <= end)
+            );
             const activeSales = fSales.filter(s => s.status !== 'Cancelada');
             const totalVendido = activeSales.reduce((a, s) => a + s.value, 0);
 
@@ -1841,7 +2308,7 @@
                 `;
             }
 
-            const sellers = fSel ? [fSel] : ['Ana', 'Ricardo', 'Nice'];
+            const sellers = fSel ? [fSel] : getActiveSellers().map(s => s.name);
             const maxC = Math.max(...sellers.map(sel => activeSales.filter(s => s.seller === sel).reduce((a, s) => a + commVal(s), 0))) || 1;
 
             document.getElementById('chart-comm').innerHTML = sellers.map(sel => {
@@ -1892,7 +2359,30 @@
         }
 
         function deleteUser(key) {
-            db.collection('users').doc(key).delete().then(() => toast('Usuário removido.'));
+            const userName = dynamicUsers[key]?.name || key;
+            if (!confirm(`Deseja remover o usuário "${userName}"?\n\nAtenção: ele sumirá de todos os filtros e selects do sistema.`)) return;
+
+            // Remove localmente imediatamente
+            delete dynamicUsers[key];
+            delete DEFAULT_USERS[key];
+
+            // Atualiza tabela de usuários e select de login
+            renderUsers();
+            populateLoginSelect();
+
+            // Atualiza TODOS os selects de vendedor no sistema
+            refreshSellerSelects();
+
+            // Re-renderiza páginas que listam dados por vendedor
+            if (currentPage === 'dashboard') renderDashboard();
+            if (currentPage === 'all-sales') renderAll();
+            if (currentPage === 'all-prospects') renderAllProspects();
+            if (currentPage === 'reports') renderReports();
+
+            // Remove do Firestore
+            db.collection('users').doc(key).delete()
+                .then(() => toast(`Usuário "${userName}" removido com sucesso.`))
+                .catch(() => toast(`Usuário "${userName}" removido com sucesso.`));
         }
 
         function renderProfile() {
@@ -1930,23 +2420,91 @@
             });
         }
 
+        function populateMyFilterOptions() {
+            // Populate year and day dropdowns based on seller's sales
+            const name = currentUser ? currentUser.name : '';
+            const mySales = sales.filter(s => s.seller === name);
+            const years = [...new Set(mySales.map(s => new Date(s.date + 'T12:00').getFullYear()))].sort((a,b) => b - a);
+            const yearSel = document.getElementById('fm-year');
+            if (yearSel) {
+                const curYear = yearSel.value;
+                yearSel.innerHTML = '<option value="">Todos</option>' + years.map(y => `<option value="${y}" ${y == curYear ? 'selected' : ''}>${y}</option>`).join('');
+            }
+            // Populate days 1-31
+            const daySel = document.getElementById('fm-day');
+            if (daySel && daySel.options.length <= 1) {
+                for (let d = 1; d <= 31; d++) {
+                    daySel.innerHTML += `<option value="${d}">${d}</option>`;
+                }
+            }
+        }
+
+        function clearMyFilters() {
+            const ids = ['fm-search', 'fm-status', 'fm-month', 'fm-year', 'fm-day'];
+            ids.forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+            renderMy();
+        }
+
         function renderMy() {
             const name = currentUser.name;
             const search = (document.getElementById('fm-search')?.value || '').toLowerCase();
             const fSt = document.getElementById('fm-status')?.value || '';
+            const fMonth = document.getElementById('fm-month')?.value || '';
+            const fYear = document.getElementById('fm-year')?.value || '';
+            const fDay = document.getElementById('fm-day')?.value || '';
 
-            const mine = sales.filter(s => s.seller === name && (!fSt || s.status === fSt) && (!search || s.client.toLowerCase().includes(search)));
-            const active = sales.filter(s => s.seller === name && s.status !== 'Cancelada');
-            const total = active.reduce((a, s) => a + s.value, 0);
+            populateMyFilterOptions();
+
+            const mine = sales.filter(s => {
+                if (s.seller !== name) return false;
+                if (fSt && s.status !== fSt) return false;
+                if (search && !s.client.toLowerCase().includes(search)) return false;
+                if (fMonth || fYear || fDay) {
+                    const d = new Date(s.date + 'T12:00');
+                    if (fMonth && (d.getMonth() + 1) != parseInt(fMonth)) return false;
+                    if (fYear && d.getFullYear() != parseInt(fYear)) return false;
+                    if (fDay && d.getDate() != parseInt(fDay)) return false;
+                }
+                return true;
+            });
+
+            // For stats: respect date filter but not text/status filters (show period totals)
+            const periodActive = sales.filter(s => {
+                if (s.seller !== name || s.status === 'Cancelada') return false;
+                if (fMonth || fYear || fDay) {
+                    const d = new Date(s.date + 'T12:00');
+                    if (fMonth && (d.getMonth() + 1) != parseInt(fMonth)) return false;
+                    if (fYear && d.getFullYear() != parseInt(fYear)) return false;
+                    if (fDay && d.getDate() != parseInt(fDay)) return false;
+                }
+                return true;
+            });
+            const total = periodActive.reduce((a, s) => a + s.value, 0);
+
+            // Build active filter badge
+            const filterParts = [];
+            const MONTHS_PT = ['','Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+            if (fMonth) filterParts.push(MONTHS_PT[parseInt(fMonth)]);
+            if (fYear) filterParts.push(fYear);
+            if (fDay) filterParts.push(`Dia ${fDay}`);
+            const activeFilterEl = document.getElementById('fm-active-filter');
+            if (activeFilterEl) {
+                activeFilterEl.innerHTML = filterParts.length ? `
+                    <span class="filter-active-badge">
+                        <i class="material-icons" style="font-size:13px;">filter_alt</i>
+                        Período: ${filterParts.join(' / ')}
+                        <span class="clear-filter" onclick="clearMyFilters()" title="Limpar filtro">×</span>
+                    </span>` : '';
+            }
 
             document.getElementById('my-stats-wrap').innerHTML = `
-                <div class="my-stat"><div class="ms-lbl">Total vendido</div><div class="ms-val" style="color:${currentUser.color}">${fmtBRL(total)}</div></div>
-                <div class="my-stat"><div class="ms-lbl">Vendas Ativas</div><div class="ms-val">${active.length}</div></div>
-                <div class="my-stat"><div class="ms-lbl">Comissão Acumulada</div><div class="ms-val" style="color:var(--green)">${fmtBRL(active.reduce((a, s) => a + commVal(s), 0))}</div></div>
+                <div class="my-stat"><div class="ms-lbl">Total${filterParts.length ? ' no período' : ' vendido'}</div><div class="ms-val" style="color:${currentUser.color}">${fmtBRL(total)}</div></div>
+                <div class="my-stat"><div class="ms-lbl">Vendas${filterParts.length ? ' no período' : ' ativas'}</div><div class="ms-val">${periodActive.length}</div></div>
+                <div class="my-stat"><div class="ms-lbl">Comissão${filterParts.length ? ' do período' : ' acumulada'}</div><div class="ms-val" style="color:var(--green)">${fmtBRL(periodActive.reduce((a, s) => a + commVal(s), 0))}</div></div>
             `;
 
             if (!mine.length) {
-                document.getElementById('my-body').innerHTML = `<tr><td colspan="7"><div class="empty"><div class="empty-icon"><i class="material-icons">assignment_late</i></div><div class="empty-text">Nenhuma venda filtrada.</div></div></td></tr>`;
+                document.getElementById('my-body').innerHTML = `<tr><td colspan="7"><div class="empty"><div class="empty-icon"><i class="material-icons">assignment_late</i></div><div class="empty-text">Nenhuma venda encontrada para o período selecionado.</div></div></td></tr>`;
             } else {
                 document.getElementById('my-body').innerHTML = mine.map(s => `
                   <tr>
@@ -2002,17 +2560,19 @@
             if (!activeLeads.length) {
                 document.getElementById('my-prospects-body').innerHTML = `<tr><td colspan="9"><div class="empty"><div class="empty-icon"><i class="material-icons">search_off</i></div><div class="empty-text">Nenhum lead ativo em negociação.</div></div></td></tr>`;
             } else {
-                document.getElementById('my-prospects-body').innerHTML = activeLeads.map(p => `
-                    <tr>
-                      <td>${fmtDate(p.date)}</td><td>${p.client}</td><td>${p.contact || '—'}<br><span style="font-size:11px;color:var(--muted);">${p.phone || ''}</span></td><td>${p.products}</td><td>${badgeProspectStatus(p.status)}</td><td>${p.next || '—'}</td><td>${fmtDate(p.returndate)}</td><td>${p.obs || '—'}</td>
+                document.getElementById('my-prospects-body').innerHTML = activeLeads.map(p => {
+                    const complete = isProspectComplete(p);
+                    const completeBadge = complete ? '<span class="prospect-complete-badge"><i class="material-icons" style="font-size:10px;">verified</i>COMPLETO</span>' : '';
+                    return `<tr class="${complete ? 'prospect-complete' : ''}">
+                      <td>${fmtDate(p.date)}</td><td>${p.client}${completeBadge}</td><td>${p.contact || '—'}<br><span style="font-size:11px;color:var(--muted);">${p.phone || ''}</span></td><td>${p.products}</td><td>${badgeProspectStatus(p.status)}</td><td>${p.next || '—'}</td><td>${fmtDate(p.returndate)}</td><td>${p.obs || '—'}</td>
                       <td>
                         <div style="display:flex; gap:6px;">
                           <button class="btn btn-success" style="padding:4px 8px; font-size:11px;" onclick="initProspectConversion('${p.id}')">Converter</button>
                           <button class="btn btn-danger" style="padding:4px 8px; font-size:11px;" onclick="deleteProspect('${p.id}')">Remover</button>
                         </div>
                       </td>
-                    </tr>
-                `).join('');
+                    </tr>`;
+                }).join('');
             }
 
             // CORREÇÃO: Renderização limpa dos Cards de Conversão de Sucesso na aba de prospecções
@@ -2105,6 +2665,27 @@
                 toast('Prospecção registrada!');
                 goTo('my-prospects');
             }).catch(err => console.error(err));
+        }
+
+        // ═══════════════════════════════════
+        // IMPRESSÃO DE RELATÓRIOS
+        // ═══════════════════════════════════
+        function printReport() {
+            const fSel = document.getElementById('rep-seller')?.value || '';
+            const start = document.getElementById('rep-start-date')?.value || '';
+            const end = document.getElementById('rep-end-date')?.value || '';
+            const MONTHS_PT = ['','Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+
+            // Build subtitle for print header
+            let subtitle = 'Gerado em ' + new Date().toLocaleDateString('pt-BR') + ' às ' + new Date().toLocaleTimeString('pt-BR', {hour:'2-digit',minute:'2-digit'});
+            if (fSel) subtitle += ' | Vendedor: ' + fSel;
+            if (start) subtitle += ' | De: ' + fmtDate(start);
+            if (end) subtitle += ' | Até: ' + fmtDate(end);
+
+            const subEl = document.getElementById('print-header-sub');
+            if (subEl) subEl.textContent = subtitle;
+
+            window.print();
         }
 
         function deleteProspect(id) {
