@@ -1776,11 +1776,9 @@
         const db = firebase.firestore();
         initFirebaseListeners();
 
+        // Apenas master é local — todos os outros usuários vêm exclusivamente do Firebase
         const DEFAULT_USERS = {
             master: { name: 'Master', role: 'Gestor', pw: 'master123', color: '#4f46e5', bg: 'rgba(79,70,229,0.2)', initial: 'M' },
-            ana: { name: 'Ana', role: 'Vendedora', pw: 'ana123', color: '#7c3aed', bg: 'rgba(124,58,237,0.2)', initial: 'A' },
-            ricardo: { name: 'Ricardo', role: 'Vendedor', pw: 'ric123', color: '#0284c7', bg: 'rgba(2,132,199,0.2)', initial: 'R' },
-            nice: { name: 'Nice', role: 'Vendedora', pw: 'nice123', color: '#db2777', bg: 'rgba(219,39,119,0.2)', initial: 'N' },
         };
 
         const SELLER_COLORS = { Ana: '#7c3aed', Ricardo: '#0284c7', Nice: '#db2777' };
@@ -1815,7 +1813,8 @@
             });
 
             db.collection('users').onSnapshot(snapshot => {
-                dynamicUsers = { ...DEFAULT_USERS };
+                // Começa apenas com master (local), resto vem 100% do Firebase
+                dynamicUsers = { master: DEFAULT_USERS.master };
                 snapshot.forEach(doc => { dynamicUsers[doc.id] = doc.data(); });
                 populateLoginSelect();
                 if (currentUser && dynamicUsers[currentUser.key]) {
