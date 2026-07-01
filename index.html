@@ -1000,12 +1000,15 @@
             background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%) !important;
             border-bottom: 1px solid #bbf7d0;
         }
+
         tr.prospect-complete td:first-child {
             border-left: 3px solid #16a34a;
         }
+
         tr.prospect-complete:hover td {
             background: #dcfce7 !important;
         }
+
         .prospect-complete-badge {
             display: inline-flex;
             align-items: center;
@@ -1032,21 +1035,31 @@
             border: 1.5px solid #86efac;
             border-radius: var(--r);
             padding: 16px 18px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
             z-index: 10000;
             max-width: 340px;
             animation: slideInNotif 0.3s ease;
         }
+
         @keyframes slideInNotif {
-            from { transform: translateX(120%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+            from {
+                transform: translateX(120%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
+
         .notif-header {
             display: flex;
             align-items: center;
             gap: 8px;
             margin-bottom: 10px;
         }
+
         .notif-icon {
             width: 32px;
             height: 32px;
@@ -1058,21 +1071,28 @@
             color: #16a34a;
             flex-shrink: 0;
         }
+
         .notif-title {
             font-size: 13px;
             font-weight: 700;
             color: var(--text);
         }
+
         .notif-sub {
             font-size: 11px;
             color: var(--sub);
         }
+
         .notif-body {
             font-size: 12px;
             color: var(--text);
             line-height: 1.6;
         }
-        .notif-body strong { color: var(--green); }
+
+        .notif-body strong {
+            color: var(--green);
+        }
+
         .notif-close {
             position: absolute;
             top: 10px;
@@ -1085,7 +1105,10 @@
             padding: 0;
             line-height: 1;
         }
-        .notif-close:hover { color: var(--text); }
+
+        .notif-close:hover {
+            color: var(--text);
+        }
 
         /* ═══════════════════════════════════
            FILTRO DE MÊS/ANO - MINHAS VENDAS
@@ -1099,12 +1122,14 @@
             border-radius: var(--r-sm);
             padding: 4px 10px;
         }
+
         .date-filter-group label {
             font-size: 11px;
             font-weight: 600;
             color: var(--sub);
             white-space: nowrap;
         }
+
         .date-filter-group select {
             padding: 4px 8px;
             border: none;
@@ -1114,6 +1139,7 @@
             outline: none;
             cursor: pointer;
         }
+
         .filter-active-badge {
             display: inline-flex;
             align-items: center;
@@ -1126,13 +1152,17 @@
             border-radius: 20px;
             border: 1px solid #c7d2fe;
         }
+
         .filter-active-badge .clear-filter {
             cursor: pointer;
             font-size: 14px;
             line-height: 1;
             margin-left: 2px;
         }
-        .filter-active-badge .clear-filter:hover { color: var(--accent-hover); }
+
+        .filter-active-badge .clear-filter:hover {
+            color: var(--accent-hover);
+        }
 
         /* ═══════════════════════════════════
            IMPRESSÃO DE RELATÓRIOS
@@ -1151,6 +1181,7 @@
             cursor: pointer;
             transition: all 0.15s;
         }
+
         .btn-print:hover {
             border-color: var(--accent);
             color: var(--accent);
@@ -1158,11 +1189,18 @@
         }
 
         @media print {
+
             /* Ocultar tudo por padrão */
-            body * { visibility: hidden; }
+            body * {
+                visibility: hidden;
+            }
 
             /* Mostrar apenas o conteúdo do relatório */
-            #print-report-area, #print-report-area * { visibility: visible; }
+            #print-report-area,
+            #print-report-area * {
+                visibility: visible;
+            }
+
             #print-report-area {
                 position: absolute;
                 top: 0;
@@ -1172,12 +1210,25 @@
             }
 
             /* Reset de layout para impressão */
-            .sidebar, .topbar, .filter-bar, .btn-print,
-            #topbar-actions, .btn, button,
-            .nav-item, .sidebar-footer { display: none !important; }
+            .sidebar,
+            .topbar,
+            .filter-bar,
+            .btn-print,
+            #topbar-actions,
+            .btn,
+            button,
+            .nav-item,
+            .sidebar-footer {
+                display: none !important;
+            }
 
-            .main-wrap { margin-left: 0 !important; }
-            .content { padding: 0 !important; }
+            .main-wrap {
+                margin-left: 0 !important;
+            }
+
+            .content {
+                padding: 0 !important;
+            }
 
             .print-header {
                 display: block !important;
@@ -1186,26 +1237,61 @@
                 padding: 16px 0;
                 border-bottom: 2px solid #e4e6f0;
             }
+
             .print-header h2 {
                 font-size: 20px;
                 font-weight: 700;
                 color: #1a1d2e;
                 margin-bottom: 4px;
             }
+
             .print-header p {
                 font-size: 12px;
                 color: #6b6f8a;
             }
 
-            table { page-break-inside: auto; }
-            tr { page-break-inside: avoid; page-break-after: auto; }
-            thead { display: table-header-group; }
-            .card { box-shadow: none !important; border: 1px solid #e4e6f0 !important; page-break-inside: avoid; margin-bottom: 16px; }
-            .two-col { grid-template-columns: 1fr 1fr; gap: 12px; }
-            .stat-card { page-break-inside: avoid; }
-            tbody td, thead th { padding: 8px 12px !important; font-size: 11px !important; }
-            .badge { font-size: 10px !important; }
-            .seller-badge { font-size: 10px !important; }
+            table {
+                page-break-inside: auto;
+            }
+
+            tr {
+                page-break-inside: avoid;
+                page-break-after: auto;
+            }
+
+            thead {
+                display: table-header-group;
+            }
+
+            .card {
+                box-shadow: none !important;
+                border: 1px solid #e4e6f0 !important;
+                page-break-inside: avoid;
+                margin-bottom: 16px;
+            }
+
+            .two-col {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .stat-card {
+                page-break-inside: avoid;
+            }
+
+            tbody td,
+            thead th {
+                padding: 8px 12px !important;
+                font-size: 11px !important;
+            }
+
+            .badge {
+                font-size: 10px !important;
+            }
+
+            .seller-badge {
+                font-size: 10px !important;
+            }
         }
 
         /* ═══════════════════════════════════
@@ -1214,6 +1300,7 @@
         .obs-textarea-wrap {
             position: relative;
         }
+
         .obs-textarea-wrap textarea {
             width: 100%;
             padding: 12px 14px;
@@ -1229,12 +1316,18 @@
             line-height: 1.6;
             transition: border-color 0.15s, box-shadow 0.15s;
         }
+
         .obs-textarea-wrap textarea:focus {
             border-color: #f59e0b;
-            box-shadow: 0 0 0 3px rgba(245,158,11,0.15);
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
             background: #fff;
         }
-        .obs-textarea-wrap textarea::placeholder { color: #b45309; opacity: 0.6; }
+
+        .obs-textarea-wrap textarea::placeholder {
+            color: #b45309;
+            opacity: 0.6;
+        }
+
         .obs-label-hint {
             display: flex;
             align-items: center;
@@ -1244,7 +1337,11 @@
             font-weight: 500;
             margin-bottom: 5px;
         }
-        .obs-label-hint i { font-size: 14px; }
+
+        .obs-label-hint i {
+            font-size: 14px;
+        }
+
         /* Pill de observação na tabela */
         .obs-pill {
             display: inline-flex;
@@ -1260,7 +1357,13 @@
             white-space: normal;
             line-height: 1.4;
         }
-        .obs-pill i { font-size: 13px; color: #f59e0b; flex-shrink: 0; margin-top: 1px; }
+
+        .obs-pill i {
+            font-size: 13px;
+            color: #f59e0b;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
 
         /* ═══════════════════════════════════
            MODAL DE EDIÇÃO
@@ -1276,21 +1379,34 @@
             padding: 20px;
             backdrop-filter: blur(2px);
         }
-        .modal-overlay.open { display: flex; }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
         .modal-box {
             background: var(--surface);
             border-radius: var(--r);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
             width: 100%;
             max-width: 860px;
             max-height: 90vh;
             overflow-y: auto;
             animation: modalIn 0.2s ease;
         }
+
         @keyframes modalIn {
-            from { opacity:0; transform: scale(0.96) translateY(10px); }
-            to   { opacity:1; transform: scale(1)    translateY(0); }
+            from {
+                opacity: 0;
+                transform: scale(0.96) translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
         }
+
         .modal-header {
             display: flex;
             align-items: center;
@@ -1302,17 +1418,35 @@
             background: var(--surface);
             z-index: 1;
         }
-        .modal-header h3 { font-size: 15px; font-weight: 700; }
-        .modal-close {
-            background: none; border: none; cursor: pointer;
-            color: var(--muted); padding: 4px;
-            border-radius: var(--r-sm);
-            display: flex; align-items: center;
+
+        .modal-header h3 {
+            font-size: 15px;
+            font-weight: 700;
         }
-        .modal-close:hover { background: var(--surface2); color: var(--text); }
-        .modal-body { padding: 24px; }
+
+        .modal-close {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--muted);
+            padding: 4px;
+            border-radius: var(--r-sm);
+            display: flex;
+            align-items: center;
+        }
+
+        .modal-close:hover {
+            background: var(--surface2);
+            color: var(--text);
+        }
+
+        .modal-body {
+            padding: 24px;
+        }
+
         .modal-footer {
-            display: flex; gap: 10px;
+            display: flex;
+            gap: 10px;
             padding: 16px 24px;
             border-top: 1px solid var(--border);
             background: var(--surface);
@@ -1322,23 +1456,51 @@
 
         /* BADGE FORMA DE PAGAMENTO */
         .badge-payment {
-            background: #ede9fe; color: #5b21b6;
-            display: inline-flex; align-items: center; gap: 4px;
-            padding: 3px 9px; border-radius: 20px;
-            font-size: 11px; font-weight: 600;
+            background: #ede9fe;
+            color: #5b21b6;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 9px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
         }
+
         /* AVISO DUPLICIDADE */
         .dup-warning {
             display: none;
-            background: #fef3c7; border: 1px solid #fcd34d;
-            border-radius: var(--r-sm); padding: 10px 14px;
-            color: #92400e; font-size: 13px;
-            align-items: center; gap: 8px;
+            background: #fef3c7;
+            border: 1px solid #fcd34d;
+            border-radius: var(--r-sm);
+            padding: 10px 14px;
+            color: #92400e;
+            font-size: 13px;
+            align-items: center;
+            gap: 8px;
             margin-top: 6px;
         }
-        .dup-warning.show { display: flex; }
 
-    </style>
+        .dup-warning.show {
+            display: flex;
+        }
+    
+.evaluation-details{
+ display:none;
+ margin-top:15px;
+ padding-top:15px;
+ border-top:1px solid var(--border);
+}
+.evaluation-details.open{display:block}
+.evaluation-user-card{cursor:pointer;padding:18px;transition:.2s}
+.evaluation-user-card:hover{transform:translateY(-2px)}
+.evaluation-item{
+ background:var(--surface2);
+ border-radius:8px;
+ padding:12px;
+ margin-bottom:10px;
+}
+</style>
 </head>
 
 <body>
@@ -1386,7 +1548,7 @@
 
                 <button class="btn-login" onclick="doLogin()">Entrar no sistema</button>
 
-             
+
             </div>
         </div>
     </div>
@@ -1421,7 +1583,10 @@
 
         <div class="main-wrap">
             <div class="topbar">
-                <div class="topbar-title"><h1 id="page-title"></h1><p id="page-sub"></p></div>
+                <div class="topbar-title">
+                    <h1 id="page-title"></h1>
+                    <p id="page-sub"></p>
+                </div>
                 <div class="topbar-actions" id="topbar-actions"></div>
             </div>
 
@@ -1514,7 +1679,8 @@
                     <div class="stats-grid" id="prospect-stats-grid" style="margin-bottom:20px;"></div>
 
                     <div class="filter-bar">
-                        <input type="text" id="fp-search" placeholder="Buscar leads..." oninput="renderAllProspects()" style="min-width:220px">
+                        <input type="text" id="fp-search" placeholder="Buscar leads..." oninput="renderAllProspects()"
+                            style="min-width:220px">
                         <select id="fp-seller" onchange="renderAllProspects()">
                             <option value="">Todos os colaboradores</option>
                         </select>
@@ -1527,15 +1693,22 @@
                             <option value="Perdido">Perdido</option>
                         </select>
                         <div class="date-filter-group">
-                            <label><i class="material-icons" style="font-size:14px;vertical-align:middle;">calendar_month</i> Mês:</label>
+                            <label><i class="material-icons"
+                                    style="font-size:14px;vertical-align:middle;">calendar_month</i> Mês:</label>
                             <select id="fp-month" onchange="renderAllProspects()">
                                 <option value="">Todos</option>
-                                <option value="1">Janeiro</option><option value="2">Fevereiro</option>
-                                <option value="3">Março</option><option value="4">Abril</option>
-                                <option value="5">Maio</option><option value="6">Junho</option>
-                                <option value="7">Julho</option><option value="8">Agosto</option>
-                                <option value="9">Setembro</option><option value="10">Outubro</option>
-                                <option value="11">Novembro</option><option value="12">Dezembro</option>
+                                <option value="1">Janeiro</option>
+                                <option value="2">Fevereiro</option>
+                                <option value="3">Março</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Maio</option>
+                                <option value="6">Junho</option>
+                                <option value="7">Julho</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Setembro</option>
+                                <option value="10">Outubro</option>
+                                <option value="11">Novembro</option>
+                                <option value="12">Dezembro</option>
                             </select>
                         </div>
                         <div class="date-filter-group">
@@ -1544,7 +1717,8 @@
                                 <option value="">Todos</option>
                             </select>
                         </div>
-                        <button class="btn btn-ghost" style="padding:6px 10px;font-size:12px;" onclick="clearProspectFilters()">
+                        <button class="btn btn-ghost" style="padding:6px 10px;font-size:12px;"
+                            onclick="clearProspectFilters()">
                             <i class="material-icons" style="font-size:14px;">clear</i> Limpar
                         </button>
                     </div>
@@ -1576,7 +1750,8 @@
 
                 <!-- RELATÓRIOS -->
                 <div class="page" id="p-reports">
-                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:16px;">
+                    <div
+                        style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:16px;">
                         <div class="filter-bar" style="margin-bottom:0; flex:1;">
                             <select id="rep-seller" onchange="renderReports()">
                                 <option value="">— Toda a Equipe —</option>
@@ -1597,43 +1772,43 @@
                             <h2>Relatório de Vendas — FAUKO</h2>
                             <p id="print-header-sub"></p>
                         </div>
-                    <div id="report-stats-cards"
-                        style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:16px; margin-bottom:20px;">
-                    </div>
-                    <div class="two-col">
+                        <div id="report-stats-cards"
+                            style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:16px; margin-bottom:20px;">
+                        </div>
+                        <div class="two-col">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>Comissões por Colaborador</h3>
+                                </div>
+                                <div class="chart-wrap" id="chart-comm"></div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>Funil de Vendas (Status)</h3>
+                                </div>
+                                <div class="chart-wrap" id="chart-status"></div>
+                            </div>
+                        </div>
                         <div class="card">
                             <div class="card-header">
-                                <h3>Comissões por Colaborador</h3>
+                                <h3>Top 10 Maiores Vendas Contratadas</h3>
                             </div>
-                            <div class="chart-wrap" id="chart-comm"></div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>Funil de Vendas (Status)</h3>
+                            <div class="table-wrap">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Vendas</th>
+                                            <th>Cliente</th>
+                                            <th>Produto</th>
+                                            <th>Valor</th>
+                                            <th>Data</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="top-body"></tbody>
+                                </table>
                             </div>
-                            <div class="chart-wrap" id="chart-status"></div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Top 10 Maiores Vendas Contratadas</h3>
-                        </div>
-                        <div class="table-wrap">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Vendas</th>
-                                        <th>Cliente</th>
-                                        <th>Produto</th>
-                                        <th>Valor</th>
-                                        <th>Data</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="top-body"></tbody>
-                            </table>
-                        </div>
-                    </div>
                     </div><!-- /print-report-area -->
                 </div>
 
@@ -1670,10 +1845,16 @@
                             </div>
                             <div class="fg" style="margin-bottom:12px;">
                                 <label>Cargo / Nível de Acesso</label>
-                                <select id="nu-role">
+                                <select id="nu-role" onchange="toggleAuthFields()">
                                     <option value="Vendas">Vendas</option>
                                     <option value="Gestora">Gestor (Master)</option>
+                                    <option value="Colaborador">Colaborador (Apenas Avaliação)</option>
                                 </select>
+                            </div>
+                            <div class="fg" style="margin-bottom:12px;">
+                                <label>Cor de Identificação</label>
+                                <input type="color" id="nu-color" value="#4f46e5"
+                                    style="height: 38px; cursor: pointer;">
                             </div>
                             <div class="fg" style="margin-bottom:20px;">
                                 <label>Senha</label>
@@ -1699,7 +1880,8 @@
                             <option value="Cancelada">Cancelada</option>
                         </select>
                         <div class="date-filter-group">
-                            <label><i class="material-icons" style="font-size:14px;vertical-align:middle;">calendar_month</i> Mês:</label>
+                            <label><i class="material-icons"
+                                    style="font-size:14px;vertical-align:middle;">calendar_month</i> Mês:</label>
                             <select id="fm-month" onchange="renderMy()">
                                 <option value="">Todos</option>
                                 <option value="1">Janeiro</option>
@@ -1728,7 +1910,8 @@
                                 <option value="">Todos</option>
                             </select>
                         </div>
-                        <button class="btn btn-ghost" style="padding:6px 10px; font-size:12px;" onclick="clearMyFilters()">
+                        <button class="btn btn-ghost" style="padding:6px 10px; font-size:12px;"
+                            onclick="clearMyFilters()">
                             <i class="material-icons" style="font-size:14px;">clear</i> Limpar
                         </button>
                     </div>
@@ -1776,7 +1959,8 @@
                             <option value="Convertido">Convertido</option>
                             <option value="Perdido">Perdido</option>
                         </select>
-                        <button class="btn btn-ghost" style="padding:6px 10px;font-size:12px;" onclick="clearMyProspectFilters()">
+                        <button class="btn btn-ghost" style="padding:6px 10px;font-size:12px;"
+                            onclick="clearMyProspectFilters()">
                             <i class="material-icons" style="font-size:14px;">clear</i> Limpar
                         </button>
                     </div>
@@ -1815,7 +1999,8 @@
                             <div class="fg"><label>Nome do cliente *</label><input type="text" id="nv-client"></div>
                             <div class="fg full"><label>Produto / Serviço *</label><input type="text" id="nv-product">
                             </div>
-                            <div class="fg"><label>Valor (R$) *</label><input type="number" id="nv-value" step="0.01" oninput="updateNewCommPreview()">
+                            <div class="fg"><label>Valor (R$) *</label><input type="number" id="nv-value" step="0.01"
+                                    oninput="updateNewCommPreview()">
                             </div>
                             <div class="fg">
                                 <label>Status</label>
@@ -1834,24 +2019,32 @@
                                     <option value="Outro">Outro </option>
                                 </select>
                             </div>
-                            <div class="fg full" style="background:var(--accent-lt);border:1px solid #c7d2fe;border-radius:var(--r-sm);padding:10px 14px;">
-                                <span style="font-size:12px;color:var(--accent);font-weight:600;">💰 Comissão estimada: <span id="nv-comm-preview">—</span></span>
+                            <div class="fg full"
+                                style="background:var(--accent-lt);border:1px solid #c7d2fe;border-radius:var(--r-sm);padding:10px 14px;">
+                                <span style="font-size:12px;color:var(--accent);font-weight:600;">💰 Comissão estimada:
+                                    <span id="nv-comm-preview">—</span></span>
                             </div>
                             <!-- SEÇÃO DE PARCELAS -->
                             <div class="fg full" id="nv-parcelas-section" style="display:none;">
                                 <label>Parcelas</label>
-                                <div id="nv-parcelas-list" style="display:flex;flex-direction:column;gap:8px;margin-bottom:8px;"></div>
-                                <button type="button" class="btn btn-outline" style="width:fit-content;font-size:12px;" onclick="addParcelaRow()">
+                                <div id="nv-parcelas-list"
+                                    style="display:flex;flex-direction:column;gap:8px;margin-bottom:8px;"></div>
+                                <button type="button" class="btn btn-outline" style="width:fit-content;font-size:12px;"
+                                    onclick="addParcelaRow()">
                                     <i class="material-icons" style="font-size:14px;">add</i> Adicionar Parcela
                                 </button>
-                                <div style="margin-top:8px;padding:8px 12px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;font-size:12px;color:#166534;">
-                                    💡 Comissão de 2,5% é calculada <strong>somente sobre parcelas marcadas como pagas</strong>, no mês de pagamento.
+                                <div
+                                    style="margin-top:8px;padding:8px 12px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;font-size:12px;color:#166534;">
+                                    💡 Comissão de 2,5% é calculada <strong>somente sobre parcelas marcadas como
+                                        pagas</strong>, no mês de pagamento.
                                 </div>
                             </div>
                             <div class="fg full">
-                                <label><span class="obs-label-hint"><i class="material-icons">sticky_note_2</i> Observações</span></label>
+                                <label><span class="obs-label-hint"><i class="material-icons">sticky_note_2</i>
+                                        Observações</span></label>
                                 <div class="obs-textarea-wrap">
-                                    <textarea id="nv-obs" rows="3" placeholder="Adicione observações relevantes sobre esta venda..."></textarea>
+                                    <textarea id="nv-obs" rows="3"
+                                        placeholder="Adicione observações relevantes sobre esta venda..."></textarea>
                                 </div>
                             </div>
                         </div>
@@ -1904,9 +2097,11 @@
                             <div class="fg"><label>Próxima Ação</label><input type="text" id="np-next"></div>
                             <div class="fg"><label>Data do Retorno</label><input type="date" id="np-returndate"></div>
                             <div class="fg full">
-                                <label><span class="obs-label-hint"><i class="material-icons">sticky_note_2</i> Observações</span></label>
+                                <label><span class="obs-label-hint"><i class="material-icons">sticky_note_2</i>
+                                        Observações</span></label>
                                 <div class="obs-textarea-wrap">
-                                    <textarea id="np-obs" rows="3" placeholder="Observações sobre o lead, histórico de contato, próximos passos..."></textarea>
+                                    <textarea id="np-obs" rows="3"
+                                        placeholder="Observações sobre o lead, histórico de contato, próximos passos..."></textarea>
                                 </div>
                             </div>
                         </div>
@@ -1916,7 +2111,113 @@
                     </div>
                 </div>
 
-                <!-- PERFIL -->
+                <!-- AVALIAÇÕES ADMINISTRATIVAS MASTER -->
+<div class="page" id="p-evaluation">
+  <!-- VIEW: Lista de colaboradores -->
+  <div id="ev-view-list">
+    <div class="stats-grid" id="evaluation-summary"></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px;">
+      <div>
+        <h2 style="font-size:17px;font-weight:700;color:var(--text);margin:0;">Colaboradores</h2>
+        <p style="font-size:13px;color:var(--sub);margin:2px 0 0;">Clique em um colaborador para ver o perfil completo de avaliações</p>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <input type="month" id="ev-filter-month" onchange="renderEvaluations()" style="padding:7px 12px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:13px;outline:none;">
+      </div>
+    </div>
+    <div id="ev-colabs-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;"></div>
+  </div>
+
+  <!-- VIEW: Perfil de um colaborador -->
+  <div id="ev-view-profile" style="display:none;">
+    <!-- Breadcrumb -->
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;">
+      <button class="btn btn-outline" onclick="evBackToList()" style="padding:6px 12px;font-size:12px;">
+        <i class="material-icons" style="font-size:15px;">arrow_back</i> Todos os colaboradores
+      </button>
+      <span style="color:var(--muted);font-size:13px;">›</span>
+      <span id="ev-breadcrumb-name" style="font-size:13px;font-weight:600;color:var(--text);"></span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:340px 1fr;gap:20px;align-items:start;">
+      <!-- Coluna esquerda: dados + registros rápidos -->
+      <div>
+        <!-- Card dados do colaborador -->
+        <div class="card" style="margin-bottom:16px;">
+          <div class="card-header"><h3><i class="material-icons" style="font-size:16px;vertical-align:middle;margin-right:6px;color:var(--accent);">person</i>Dados do Colaborador</h3></div>
+          <div style="padding:20px;">
+            <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px;">
+              <div id="ev-prof-avatar" style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;flex-shrink:0;"></div>
+              <div>
+                <div id="ev-prof-name" style="font-size:16px;font-weight:700;color:var(--text);"></div>
+                <div id="ev-prof-role" style="font-size:12px;color:var(--sub);margin-top:2px;"></div>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+              <div style="background:var(--surface2);border-radius:var(--r-sm);padding:12px;text-align:center;">
+                <div style="font-size:11px;color:var(--sub);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">Média Geral</div>
+                <div id="ev-prof-avg" style="font-size:24px;font-weight:800;"></div>
+                <div style="font-size:10px;color:var(--muted);">de 75 pts</div>
+              </div>
+              <div style="background:var(--surface2);border-radius:var(--r-sm);padding:12px;text-align:center;">
+                <div style="font-size:11px;color:var(--sub);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">Avaliações</div>
+                <div id="ev-prof-count" style="font-size:24px;font-weight:800;color:var(--text);"></div>
+                <div style="font-size:10px;color:var(--muted);">registros</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card registros rápidos -->
+        <div class="card" style="margin-bottom:16px;">
+          <div class="card-header" style="justify-content:space-between;">
+            <h3><i class="material-icons" style="font-size:16px;vertical-align:middle;margin-right:6px;color:var(--amber);">sticky_note_2</i>Registros Rápidos</h3>
+            <button class="btn btn-primary" onclick="openAddRecord()" style="padding:5px 10px;font-size:12px;">
+              <i class="material-icons" style="font-size:14px;">add</i> Adicionar
+            </button>
+          </div>
+          <div id="ev-records-list" style="max-height:320px;overflow-y:auto;padding:8px 0;"></div>
+        </div>
+
+        <!-- Card observações do gestor -->
+        <div class="card">
+          <div class="card-header"><h3><i class="material-icons" style="font-size:16px;vertical-align:middle;margin-right:6px;color:var(--green);">rate_review</i>Observações do Gestor</h3></div>
+          <div style="padding:16px;">
+            <textarea id="ev-manager-obs" rows="4" placeholder="Anotações gerais sobre este colaborador..." style="width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:13px;font-family:'Inter',sans-serif;resize:vertical;outline:none;color:var(--text);background:var(--surface);"></textarea>
+            <button class="btn btn-primary" onclick="saveManagerObs()" style="margin-top:10px;font-size:12px;padding:7px 14px;">
+              <i class="material-icons" style="font-size:14px;">save</i> Salvar Observação
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna direita: histórico + nova avaliação -->
+      <div>
+        <!-- Evolução das notas -->
+        <div class="card" style="margin-bottom:16px;">
+          <div class="card-header"><h3><i class="material-icons" style="font-size:16px;vertical-align:middle;margin-right:6px;color:var(--accent);">trending_up</i>Evolução das Notas</h3></div>
+          <div style="padding:20px 24px 16px;">
+            <div id="ev-evolution-chart" style="display:flex;align-items:flex-end;gap:8px;height:90px;"></div>
+            <div id="ev-evolution-labels" style="display:flex;gap:8px;margin-top:8px;"></div>
+          </div>
+        </div>
+
+        <!-- Histórico mensal -->
+        <div class="card" style="margin-bottom:16px;">
+          <div class="card-header" style="justify-content:space-between;">
+            <h3><i class="material-icons" style="font-size:16px;vertical-align:middle;margin-right:6px;color:var(--blue);">history</i>Histórico de Avaliações</h3>
+            <button class="btn btn-primary" onclick="openNewEvaluation()" style="padding:5px 10px;font-size:12px;">
+              <i class="material-icons" style="font-size:14px;">add</i> Nova Avaliação
+            </button>
+          </div>
+          <div id="ev-history-list" style="padding:8px 0;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PERFIL -->
                 <div class="page" id="p-profile">
                     <div class="form-section">
                         <h3>Controle de Perfil & Segurança</h3>
@@ -1936,103 +2237,128 @@
 
     <!-- ═══ MODAL EDITAR PROSPECÇÃO ═══ -->
     <div class="modal-overlay" id="modal-edit-prospect">
-      <div class="modal-box">
-        <div class="modal-header">
-          <h3><i class="material-icons" style="font-size:18px;vertical-align:middle;margin-right:6px;color:var(--accent)">edit</i>Editar Prospecção</h3>
-          <button class="modal-close" onclick="closeModal('modal-edit-prospect')"><i class="material-icons">close</i></button>
-        </div>
-        <div class="modal-body">
-          <div class="form-grid">
-            <div class="fg"><label>Data de Entrada *</label><input type="date" id="ep-date"></div>
-            <div class="fg"><label>Empresa / Cliente *</label><input type="text" id="ep-client"></div>
-            <div class="fg"><label>CNPJ</label><input type="text" id="ep-cnpj"></div>
-            <div class="fg"><label>Tipo de Cliente</label><select id="ep-type"><option>Revenda</option><option>Final</option></select></div>
-            <div class="fg"><label>Segmento</label><input type="text" id="ep-segment"></div>
-            <div class="fg"><label>Cidade / UF</label><input type="text" id="ep-city"></div>
-            <div class="fg"><label>Nome do Contato</label><input type="text" id="ep-contact"></div>
-            <div class="fg"><label>Cargo do Contato</label><input type="text" id="ep-role"></div>
-            <div class="fg"><label>Telefone</label><input type="text" id="ep-phone"></div>
-            <div class="fg"><label>E-mail</label><input type="email" id="ep-email"></div>
-            <div class="fg"><label>Origem do Lead</label><input type="text" id="ep-origin"></div>
-            <div class="fg"><label>Meio de Contato</label><input type="text" id="ep-method"></div>
-            <div class="fg full"><label>Interesse / Produtos *</label><input type="text" id="ep-products"></div>
-            <div class="fg">
-              <label>Status</label>
-              <select id="ep-status">
-                <option>Contato inicial</option><option>Em negociação</option>
-                <option>Proposta enviada</option><option>Convertido</option><option>Perdido</option>
-              </select>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3><i class="material-icons"
+                        style="font-size:18px;vertical-align:middle;margin-right:6px;color:var(--accent)">edit</i>Editar
+                    Prospecção</h3>
+                <button class="modal-close" onclick="closeModal('modal-edit-prospect')"><i
+                        class="material-icons">close</i></button>
             </div>
-            <div class="fg"><label>Próxima Ação</label><input type="text" id="ep-next"></div>
-            <div class="fg"><label>Data do Retorno</label><input type="date" id="ep-returndate"></div>
-            <div class="fg full">
-              <label><span class="obs-label-hint"><i class="material-icons">sticky_note_2</i> Observações</span></label>
-              <div class="obs-textarea-wrap"><textarea id="ep-obs" rows="3" placeholder="Observações sobre o lead..."></textarea></div>
+            <div class="modal-body">
+                <div class="form-grid">
+                    <div class="fg"><label>Data de Entrada *</label><input type="date" id="ep-date"></div>
+                    <div class="fg"><label>Empresa / Cliente *</label><input type="text" id="ep-client"></div>
+                    <div class="fg"><label>CNPJ</label><input type="text" id="ep-cnpj"></div>
+                    <div class="fg"><label>Tipo de Cliente</label><select id="ep-type">
+                            <option>Revenda</option>
+                            <option>Final</option>
+                        </select></div>
+                    <div class="fg"><label>Segmento</label><input type="text" id="ep-segment"></div>
+                    <div class="fg"><label>Cidade / UF</label><input type="text" id="ep-city"></div>
+                    <div class="fg"><label>Nome do Contato</label><input type="text" id="ep-contact"></div>
+                    <div class="fg"><label>Cargo do Contato</label><input type="text" id="ep-role"></div>
+                    <div class="fg"><label>Telefone</label><input type="text" id="ep-phone"></div>
+                    <div class="fg"><label>E-mail</label><input type="email" id="ep-email"></div>
+                    <div class="fg"><label>Origem do Lead</label><input type="text" id="ep-origin"></div>
+                    <div class="fg"><label>Meio de Contato</label><input type="text" id="ep-method"></div>
+                    <div class="fg full"><label>Interesse / Produtos *</label><input type="text" id="ep-products"></div>
+                    <div class="fg">
+                        <label>Status</label>
+                        <select id="ep-status">
+                            <option>Contato inicial</option>
+                            <option>Em negociação</option>
+                            <option>Proposta enviada</option>
+                            <option>Convertido</option>
+                            <option>Perdido</option>
+                        </select>
+                    </div>
+                    <div class="fg"><label>Próxima Ação</label><input type="text" id="ep-next"></div>
+                    <div class="fg"><label>Data do Retorno</label><input type="date" id="ep-returndate"></div>
+                    <div class="fg full">
+                        <label><span class="obs-label-hint"><i class="material-icons">sticky_note_2</i>
+                                Observações</span></label>
+                        <div class="obs-textarea-wrap"><textarea id="ep-obs" rows="3"
+                                placeholder="Observações sobre o lead..."></textarea></div>
+                    </div>
+                </div>
             </div>
-          </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="saveEditProspect()"><i class="material-icons"
+                        style="font-size:16px;">save</i> Salvar Alterações</button>
+                <button class="btn btn-outline" onclick="closeModal('modal-edit-prospect')">Cancelar</button>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button class="btn btn-primary" onclick="saveEditProspect()"><i class="material-icons" style="font-size:16px;">save</i> Salvar Alterações</button>
-          <button class="btn btn-outline" onclick="closeModal('modal-edit-prospect')">Cancelar</button>
-        </div>
-      </div>
     </div>
 
     <!-- ═══ MODAL EDITAR VENDA ═══ -->
     <div class="modal-overlay" id="modal-edit-sale">
-      <div class="modal-box" style="max-width:620px;">
-        <div class="modal-header">
-          <h3><i class="material-icons" style="font-size:18px;vertical-align:middle;margin-right:6px;color:var(--accent)">edit</i>Editar Venda</h3>
-          <button class="modal-close" onclick="closeModal('modal-edit-sale')"><i class="material-icons">close</i></button>
-        </div>
-        <div class="modal-body">
-          <div class="form-grid">
-            <div class="fg"><label>Data da Venda *</label><input type="date" id="es-date"></div>
-            <div class="fg"><label>Nome do Cliente *</label><input type="text" id="es-client"></div>
-            <div class="fg full"><label>Produto / Serviço *</label><input type="text" id="es-product"></div>
-            <div class="fg"><label>Valor (R$) *</label><input type="number" id="es-value" step="0.01" oninput="updateEditCommPreview()"></div>
-            <div class="fg">
-              <label>Status</label>
-              <select id="es-status">
-                <option>Concluída</option><option>Em andamento</option><option>Cancelada</option>
-              </select>
+        <div class="modal-box" style="max-width:620px;">
+            <div class="modal-header">
+                <h3><i class="material-icons"
+                        style="font-size:18px;vertical-align:middle;margin-right:6px;color:var(--accent)">edit</i>Editar
+                    Venda</h3>
+                <button class="modal-close" onclick="closeModal('modal-edit-sale')"><i
+                        class="material-icons">close</i></button>
             </div>
-            <div class="fg">
-              <label>Forma de Pagamento</label>
-              <select id="es-payment" onchange="updateEditCommPreview()">
-                <option value="À Vista">À Vista </option>
-                <option value="Parcelado">Parcelado </option>
-                <option value="Boleto">Boleto </option>
-                <option value="Outro">Outro </option>
-              </select>
-            </div>
-            <div class="fg full" style="background:var(--accent-lt);border:1px solid #c7d2fe;border-radius:var(--r-sm);padding:10px 14px;">
-              <span style="font-size:12px;color:var(--accent);font-weight:600;">💰 Comissão estimada: <span id="es-comm-preview">—</span></span>
-            </div>
-            <!-- PARCELAS NO MODAL DE EDIÇÃO -->
-            <div class="fg full" id="es-parcelas-section">
-                <label>Parcelas</label>
-                <div id="es-parcelas-list" style="display:flex;flex-direction:column;gap:8px;margin-bottom:8px;"></div>
-                <button type="button" class="btn btn-outline" style="width:fit-content;font-size:12px;" onclick="addEditParcelaRow()">
-                    <i class="material-icons" style="font-size:14px;">add</i> Adicionar Parcela
-                </button>
-                <div style="margin-top:8px;padding:8px 12px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;font-size:12px;color:#166534;">
-                    💡 Marque ✓ <strong>Pago</strong> na parcela e o sistema lança a comissão no mês correto.
+            <div class="modal-body">
+                <div class="form-grid">
+                    <div class="fg"><label>Data da Venda *</label><input type="date" id="es-date"></div>
+                    <div class="fg"><label>Nome do Cliente *</label><input type="text" id="es-client"></div>
+                    <div class="fg full"><label>Produto / Serviço *</label><input type="text" id="es-product"></div>
+                    <div class="fg"><label>Valor (R$) *</label><input type="number" id="es-value" step="0.01"
+                            oninput="updateEditCommPreview()"></div>
+                    <div class="fg">
+                        <label>Status</label>
+                        <select id="es-status">
+                            <option>Concluída</option>
+                            <option>Em andamento</option>
+                            <option>Cancelada</option>
+                        </select>
+                    </div>
+                    <div class="fg">
+                        <label>Forma de Pagamento</label>
+                        <select id="es-payment" onchange="updateEditCommPreview()">
+                            <option value="À Vista">À Vista </option>
+                            <option value="Parcelado">Parcelado </option>
+                            <option value="Boleto">Boleto </option>
+                            <option value="Outro">Outro </option>
+                        </select>
+                    </div>
+                    <div class="fg full"
+                        style="background:var(--accent-lt);border:1px solid #c7d2fe;border-radius:var(--r-sm);padding:10px 14px;">
+                        <span style="font-size:12px;color:var(--accent);font-weight:600;">💰 Comissão estimada: <span
+                                id="es-comm-preview">—</span></span>
+                    </div>
+                    <!-- PARCELAS NO MODAL DE EDIÇÃO -->
+                    <div class="fg full" id="es-parcelas-section">
+                        <label>Parcelas</label>
+                        <div id="es-parcelas-list"
+                            style="display:flex;flex-direction:column;gap:8px;margin-bottom:8px;"></div>
+                        <button type="button" class="btn btn-outline" style="width:fit-content;font-size:12px;"
+                            onclick="addEditParcelaRow()">
+                            <i class="material-icons" style="font-size:14px;">add</i> Adicionar Parcela
+                        </button>
+                        <div
+                            style="margin-top:8px;padding:8px 12px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;font-size:12px;color:#166534;">
+                            💡 Marque ✓ <strong>Pago</strong> na parcela e o sistema lança a comissão no mês correto.
+                        </div>
+                    </div>
+                    <div class="fg full">
+                        <label><span class="obs-label-hint"><i class="material-icons">sticky_note_2</i>
+                                Observações</span></label>
+                        <div class="obs-textarea-wrap"><textarea id="es-obs" rows="3"
+                                placeholder="Observações sobre a venda..."></textarea></div>
+                    </div>
                 </div>
             </div>
-            <div class="fg full">
-              <label><span class="obs-label-hint"><i class="material-icons">sticky_note_2</i> Observações</span></label>
-              <div class="obs-textarea-wrap"><textarea id="es-obs" rows="3" placeholder="Observações sobre a venda..."></textarea></div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="saveEditSale()"><i class="material-icons"
+                        style="font-size:16px;">save</i> Salvar Alterações</button>
+                <button class="btn btn-outline" onclick="closeModal('modal-edit-sale')">Cancelar</button>
             </div>
-          </div>
         </div>
-        <div class="modal-footer">
-          <button class="btn btn-primary" onclick="saveEditSale()"><i class="material-icons" style="font-size:16px;">save</i> Salvar Alterações</button>
-          <button class="btn btn-outline" onclick="closeModal('modal-edit-sale')">Cancelar</button>
-        </div>
-      </div>
     </div>
-
     <script>
         // ⚠️ CREDENCIAIS DO SEU PROJETO FIREBASE
 
@@ -2059,16 +2385,18 @@
             master: { name: 'Master', role: 'Gestor', pw: 'master123', color: '#4f46e5', bg: 'rgba(79,70,229,0.2)', initial: 'M' },
         };
 
-        const SELLER_COLORS = { Ana: '#7c3aed', Ricardo: '#0284c7', Nice: '#db2777' };
+        const SELLER_COLORS = {}; // agora totalmente dinâmico
         const SELLER_CLASS = { Ana: 'seller-ana', Ricardo: 'seller-ricardo', Nice: 'seller-nice' };
         const COMM_RATES = {}; // Todos os vendedores: 2,5%
 
         function getSellerColor(name) {
-            if (SELLER_COLORS[name]) return SELLER_COLORS[name];
             const userEntry = Object.values(dynamicUsers).find(u => u.name === name);
             if (userEntry && userEntry.color) return userEntry.color;
-            const palette = ['#10b981','#f59e0b','#3b82f6','#8b5cf6','#ec4899','#14b8a6','#f43f5e'];
-            let hash = 0; for (const c of name) hash = (hash * 31 + c.charCodeAt(0)) % palette.length;
+
+            const palette = ['#10b981', '#f59e0b', '#3b82f6', '#8b5cf6', '#ec4899', '#14b8a6', '#f43f5e'];
+            let hash = 0;
+            for (const c of name) hash = (hash * 31 + c.charCodeAt(0)) % palette.length;
+
             return palette[hash];
         }
 
@@ -2076,8 +2404,12 @@
         let sales = [];
         let prospects = [];
         let goals = {};
+        let evaluations = [];
+        let evRecords = [];
+        let evManagerObs = {};
         let currentUser = null;
         let conversionSourceProspectId = null;
+let editingEvaluationId = null;
         let currentPage = 'dashboard';
 
         // ═══════════════════════════════════
@@ -2116,10 +2448,35 @@
                 snapshot.forEach(doc => { goals[doc.id] = doc.data().value; });
                 if (currentUser && currentPage === 'my-sales') renderMy();
             });
+
+            db.collection('evaluations').onSnapshot(snapshot => {
+                evaluations = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                if (currentUser && currentUser.key === 'master' && currentPage === 'evaluation') {
+                    if (evCurrentColab) loadColabProfile(evCurrentColab);
+                    else renderEvaluations();
+                }
+            });
+
+            db.collection('ev_records').onSnapshot(snapshot => {
+                evRecords = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                if (currentUser && currentUser.key === 'master' && currentPage === 'evaluation') {
+                    if (evCurrentColab) loadRecords(evCurrentColab);
+                    else renderEvaluations();
+                }
+            });
+
+            db.collection('ev_manager_obs').onSnapshot(snapshot => {
+                evManagerObs = {};
+                snapshot.forEach(doc => { evManagerObs[doc.id] = doc.data().obs || ''; });
+                if (currentUser && currentUser.key === 'master' && currentPage === 'evaluation' && evCurrentColab) {
+                    const el = document.getElementById('ev-manager-obs');
+                    if (el && document.activeElement !== el) el.value = evManagerObs[evCurrentColab] || '';
+                }
+            });
         }
 
         function refreshCurrentPage() {
-            if (['dashboard', 'reports', 'users', 'profile', 'new-sale', 'new-prospect'].includes(currentPage)) {
+            if (['dashboard', 'reports', 'users', 'evaluation', 'profile', 'new-sale', 'new-prospect'].includes(currentPage)) {
                 goTo(currentPage);
             }
         }
@@ -2146,9 +2503,15 @@
             }
 
             currentUser = { key, ...dynamicUsers[key] };
+            if (currentUser.role === 'Colaborador') { alert('Este cadastro é somente para avaliação e não possui acesso.'); currentUser=null; return; }
             document.getElementById('login-screen').style.display = 'none';
             document.getElementById('app').classList.add('show');
             initApp();
+
+            if (dynamicUsers[key].role === 'Colaborador') {
+                alert('Este perfil não possui acesso ao sistema.');
+                return;
+            }
         }
 
         function doLogout() {
@@ -2174,7 +2537,400 @@
             if (u.key === 'master') goTo('dashboard'); else goTo('my-sales');
         }
 
-        function buildNav() {
+        // ═══════════════════════════════════
+        // MÓDULO DE AVALIAÇÕES — VERSÃO 2
+        // ═══════════════════════════════════
+
+        const EV_CRITERIA = [
+          { name: 'Organização e Produtividade', desc: 'Cumprimento de prazos, organização de documentos e gestão de prioridades.', weight: 2 },
+          { name: 'Qualidade do Trabalho', desc: 'Precisão, atenção aos detalhes e entrega de resultados dentro do padrão esperado.', weight: 2 },
+          { name: 'Atendimento Interno', desc: 'Qualidade no atendimento às demandas internas, clareza na comunicação e tempo de resposta.', weight: 1 },
+          { name: 'Trabalho em Equipe', desc: 'Colaboração com colegas, disposição para ajudar e contribuição para o ambiente de trabalho.', weight: 1 },
+          { name: 'Iniciativa e Proatividade', desc: 'Capacidade de identificar problemas e agir sem aguardar orientação, propondo soluções.', weight: 2 },
+          { name: 'Conhecimento Técnico', desc: 'Domínio das ferramentas, processos e conhecimentos necessários para execução da função.', weight: 2 },
+          { name: 'Comprometimento', desc: 'Assiduidade, pontualidade e sigilo de informações.', weight: 2 },
+          { name: 'Aderência aos Processos e Normas da Empresa', desc: 'Executa suas atividades em conformidade com procedimentos, políticas e normas internas.', weight: 2 },
+          { name: 'Desenvolvimento Pessoal', desc: 'Busca ativa por aprendizado, receptividade a feedbacks e evolução contínua.', weight: 1 }
+        ];
+
+        const SCORE_COLORS = [
+          { min: 60, color: '#16a34a', bg: '#dcfce7', label: 'Excelente' },
+          { min: 45, color: '#2563eb', bg: '#dbeafe', label: 'Bom' },
+          { min: 30, color: '#d97706', bg: '#fef3c7', label: 'Regular' },
+          { min: 0,  color: '#dc2626', bg: '#fee2e2', label: 'Atenção' }
+        ];
+
+        let evCurrentColab = null;
+
+        function getScoreStyle(score) {
+          return SCORE_COLORS.find(c => score >= c.min) || SCORE_COLORS[SCORE_COLORS.length - 1];
+        }
+
+        function renderEvaluations() {
+          if (!currentUser || currentUser.key !== 'master') return;
+          const filterMonth = document.getElementById('ev-filter-month')?.value || '';
+
+          let filtered = filterMonth ? evaluations.filter(x => x.date?.startsWith(filterMonth)) : evaluations;
+
+          const users = Object.values(dynamicUsers).filter(u => u.key !== 'master' && u.role !== 'Gestor');
+          const totalEvals = filtered.length;
+          const avgAll = totalEvals ? (filtered.reduce((s, x) => s + Number(x.score || 0), 0) / totalEvals).toFixed(1) : 0;
+          const topUser = users.map(u => {
+            const ua = filtered.filter(x => x.colab === u.name);
+            return { name: u.name, avg: ua.length ? ua.reduce((s, x) => s + Number(x.score || 0), 0) / ua.length : 0 };
+          }).sort((a, b) => b.avg - a.avg)[0];
+
+          document.getElementById('evaluation-summary').innerHTML = `
+            <div class="stat-card c-accent">
+              <div class="stat-icon" style="color:var(--accent)"><i class="material-icons">fact_check</i></div>
+              <div class="stat-label">Avaliações${filterMonth ? ' no mês' : ''}</div>
+              <div class="stat-value">${totalEvals}</div>
+              <div class="stat-sub">${users.length} colaboradores</div>
+            </div>
+            <div class="stat-card c-green">
+              <div class="stat-icon" style="color:var(--green)"><i class="material-icons">star</i></div>
+              <div class="stat-label">Média Geral da Equipe</div>
+              <div class="stat-value">${avgAll}</div>
+              <div class="stat-sub">de 75 pontos</div>
+            </div>
+            <div class="stat-card c-purple">
+              <div class="stat-icon" style="color:var(--ana)"><i class="material-icons">emoji_events</i></div>
+              <div class="stat-label">Melhor Média</div>
+              <div class="stat-value" style="font-size:18px;">${topUser ? topUser.name : '—'}</div>
+              <div class="stat-sub">${topUser ? topUser.avg.toFixed(1) + ' pts' : '—'}</div>
+            </div>
+          `;
+
+          const grid = document.getElementById('ev-colabs-grid');
+          grid.innerHTML = users.length ? users.map(u => {
+            const ua = filtered.filter(x => x.colab === u.name);
+            const avg = ua.length ? (ua.reduce((s, x) => s + Number(x.score || 0), 0) / ua.length).toFixed(1) : null;
+            const last = [...ua].sort((a, b) => (b.date || '').localeCompare(a.date || ''))[0];
+            const sc = avg ? getScoreStyle(Number(avg)) : null;
+            const color = u.color || 'var(--accent)';
+            const bg = u.bg || 'rgba(79,70,229,0.15)';
+            const initial = u.initial || u.name[0];
+            const recordCount = evRecords.filter(r => r.colab === u.name).length;
+            return `
+              <div class="card" onclick="openColabProfile('${u.name}')" style="cursor:pointer;padding:20px;transition:all .18s;border:1.5px solid var(--border);" onmouseenter="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)'" onmouseleave="this.style.transform='';this.style.boxShadow=''">
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+                  <div style="width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;background:${bg};color:${color};flex-shrink:0;">${initial}</div>
+                  <div style="flex:1;min-width:0;">
+                    <div style="font-size:14px;font-weight:700;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${u.name}</div>
+                    <div style="font-size:11px;color:var(--sub);">${u.role || 'Colaborador'}</div>
+                  </div>
+                  <i class="material-icons" style="color:var(--muted);font-size:18px;">chevron_right</i>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                  <div style="background:${sc ? sc.bg : 'var(--surface2)'};border-radius:8px;padding:10px;text-align:center;">
+                    <div style="font-size:10px;font-weight:600;color:${sc ? sc.color : 'var(--muted)'};text-transform:uppercase;letter-spacing:0.4px;margin-bottom:2px;">Média</div>
+                    <div style="font-size:20px;font-weight:800;color:${sc ? sc.color : 'var(--muted)'};">${avg || '—'}</div>
+                    ${sc ? `<div style="font-size:10px;color:${sc.color};font-weight:600;">${sc.label}</div>` : '<div style="font-size:10px;color:var(--muted);">Sem avaliação</div>'}
+                  </div>
+                  <div style="background:var(--surface2);border-radius:8px;padding:10px;text-align:center;">
+                    <div style="font-size:10px;font-weight:600;color:var(--sub);text-transform:uppercase;letter-spacing:0.4px;margin-bottom:2px;">Avaliações</div>
+                    <div style="font-size:20px;font-weight:800;color:var(--text);">${ua.length}</div>
+                    <div style="font-size:10px;color:var(--muted);">registros</div>
+                  </div>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-top:10px;gap:8px;">
+                  ${last ? `<div style="padding:6px 10px;background:var(--surface2);border-radius:6px;font-size:11px;color:var(--sub);display:flex;align-items:center;gap:4px;flex:1;"><i class="material-icons" style="font-size:13px;">schedule</i>${fmtDate(last.date)}</div>` : '<div style="flex:1;"></div>'}
+                  ${recordCount ? `<div style="padding:6px 10px;background:var(--amber-lt);border-radius:6px;font-size:11px;color:#92400e;display:flex;align-items:center;gap:4px;font-weight:600;"><i class="material-icons" style="font-size:13px;">sticky_note_2</i>${recordCount}</div>` : ''}
+                </div>
+              </div>`;
+          }).join('') : '<div class="empty"><div class="empty-icon"><i class="material-icons">people_outline</i></div><div class="empty-text">Nenhum colaborador cadastrado.</div></div>';
+        }
+
+        // Alias para compatibilidade com goTo
+        function renderEvaluationPage() { renderEvaluations(); }
+
+        function openColabProfile(name) {
+          const u = Object.values(dynamicUsers).find(x => x.name === name) || {};
+          if (u.role === 'Gestor' || u.key === 'master') { toast('Gestores não são avaliados.', 'error'); return; }
+          evCurrentColab = name;
+          const color = u.color || 'var(--accent)';
+          const bg = u.bg || 'rgba(79,70,229,0.15)';
+          const initial = u.initial || name[0];
+
+          document.getElementById('ev-view-list').style.display = 'none';
+          document.getElementById('ev-view-profile').style.display = 'block';
+          document.getElementById('ev-breadcrumb-name').textContent = name;
+
+          // Avatar
+          const av = document.getElementById('ev-prof-avatar');
+          av.textContent = initial;
+          av.style.background = bg;
+          av.style.color = color;
+          document.getElementById('ev-prof-name').textContent = name;
+          document.getElementById('ev-prof-role').textContent = u.role || 'Colaborador';
+
+          loadColabProfile(name);
+        }
+
+        function loadColabProfile(name) {
+          const evals = [...evaluations].filter(x => x.colab === name).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+          const avg = evals.length ? (evals.reduce((s, x) => s + Number(x.score || 0), 0) / evals.length).toFixed(1) : null;
+          const sc = avg ? getScoreStyle(Number(avg)) : null;
+
+          // Stats
+          document.getElementById('ev-prof-avg').textContent = avg || '—';
+          document.getElementById('ev-prof-avg').style.color = sc ? sc.color : 'var(--muted)';
+          document.getElementById('ev-prof-count').textContent = evals.length;
+
+          // Evolution chart
+          const sorted = [...evals].sort((a, b) => (a.date || '').localeCompare(b.date || '')).slice(-6);
+          const maxScore = 75;
+          document.getElementById('ev-evolution-chart').innerHTML = sorted.length ? sorted.map(e => {
+            const pct = Math.max(Math.round(Number(e.score || 0) / maxScore * 80), 4);
+            const s = getScoreStyle(Number(e.score || 0));
+            return `<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+              <div style="font-size:10px;font-weight:700;color:${s.color};">${e.score}</div>
+              <div style="width:100%;height:${pct}px;background:${s.color};border-radius:4px 4px 0 0;min-height:4px;"></div>
+            </div>`;
+          }).join('') : '<div style="color:var(--muted);font-size:13px;padding:10px;">Sem histórico ainda.</div>';
+          document.getElementById('ev-evolution-labels').innerHTML = sorted.length ? sorted.map(e =>
+            `<div style="flex:1;text-align:center;font-size:10px;color:var(--muted);">${e.date ? new Date(e.date+'T12:00').toLocaleDateString('pt-BR',{month:'short',year:'2-digit'}) : '—'}</div>`
+          ).join('') : '';
+
+          // History list
+          document.getElementById('ev-history-list').innerHTML = evals.length ? evals.map(e => {
+            const s = getScoreStyle(Number(e.score || 0));
+            return `<div style="padding:14px 20px;border-bottom:1px solid var(--border);">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <span style="font-size:11px;font-weight:600;color:var(--sub);">${fmtDate(e.date)}</span>
+                  <span style="background:${s.bg};color:${s.color};padding:2px 8px;border-radius:12px;font-size:11px;font-weight:700;">${s.label} · ${e.score} pts</span>
+                </div>
+                <div style="display:flex;gap:6px;">
+                  <button class="btn btn-outline" onclick="editEvaluation('${e.id}')" style="padding:4px 8px;font-size:11px;"><i class="material-icons" style="font-size:13px;">edit</i></button>
+                  <button class="btn btn-outline" onclick="printEvaluation('${e.id}')" style="padding:4px 8px;font-size:11px;"><i class="material-icons" style="font-size:13px;">print</i></button>
+                  <button onclick="deleteEvaluation('${e.id}')" style="padding:4px 8px;font-size:11px;border:1.5px solid var(--border2);border-radius:var(--r-sm);background:transparent;color:var(--red);cursor:pointer;"><i class="material-icons" style="font-size:13px;">delete</i></button>
+                </div>
+              </div>
+              ${(e.criteria || []).map(c => `
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+                  <span style="font-size:11px;color:var(--sub);flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${c.name}</span>
+                  <div style="display:flex;gap:2px;">${[1,2,3,4,5].map(n=>`<div style="width:10px;height:10px;border-radius:2px;background:${n<=c.score?'var(--accent)':'var(--border)'}"></div>`).join('')}</div>
+                  <span style="font-size:11px;font-weight:700;color:var(--text);width:14px;text-align:right;">${c.score}</span>
+                </div>`).join('')}
+              ${e.obs ? `<div style="margin-top:8px;padding:6px 10px;background:var(--surface2);border-radius:6px;font-size:11px;color:var(--sub);">${e.obs}</div>` : ''}
+            </div>`;
+          }).join('') : '<div class="empty" style="padding:28px 20px;"><div class="empty-icon" style="font-size:24px;"><i class="material-icons">assignment</i></div><div class="empty-text">Nenhuma avaliação registrada. Clique em "Nova Avaliação" para começar.</div></div>';
+
+          // Load records (from global array, kept in sync via onSnapshot)
+          loadRecords(name);
+
+          // Manager obs (from global object, kept in sync via onSnapshot)
+          const obsEl = document.getElementById('ev-manager-obs');
+          if (obsEl && document.activeElement !== obsEl) obsEl.value = evManagerObs[name] || '';
+        }
+
+        function loadRecords(name) {
+          const records = evRecords.filter(r => r.colab === name).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+          const typeMap = { positivo: { icon: 'check_circle', color: '#16a34a', bg: '#dcfce7', label: 'Positivo' }, atencao: { icon: 'warning', color: '#d97706', bg: '#fef3c7', label: 'Atenção' }, melhoria: { icon: 'flag', color: '#2563eb', bg: '#dbeafe', label: 'Melhoria' } };
+          document.getElementById('ev-records-list').innerHTML = records.length ? records.map(r => {
+            const t = typeMap[r.type] || typeMap.atencao;
+            return `<div style="padding:10px 16px;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:flex-start;">
+              <div style="width:28px;height:28px;border-radius:50%;background:${t.bg};color:${t.color};display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><i class="material-icons" style="font-size:14px;">${t.icon}</i></div>
+              <div style="flex:1;min-width:0;">
+                <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+                  <span style="font-size:10px;font-weight:700;color:${t.color};text-transform:uppercase;letter-spacing:0.4px;">${t.label}</span>
+                  <span style="font-size:10px;color:var(--muted);">${fmtDate(r.date)}</span>
+                </div>
+                <div style="font-size:12px;color:var(--text);line-height:1.5;">${r.desc}</div>
+              </div>
+              <button onclick="deleteRecord('${r.id}')" style="background:none;border:none;cursor:pointer;color:var(--muted);padding:2px;flex-shrink:0;" title="Remover"><i class="material-icons" style="font-size:15px;">close</i></button>
+            </div>`;
+          }).join('') : '<div style="padding:20px;text-align:center;color:var(--muted);font-size:13px;">Nenhum registro ainda. Clique em "+ Adicionar" para começar.</div>';
+        }
+
+        function evBackToList() {
+          evCurrentColab = null;
+          document.getElementById('ev-view-list').style.display = 'block';
+          document.getElementById('ev-view-profile').style.display = 'none';
+          renderEvaluations();
+        }
+
+        function openNewEvaluation() {
+          if (!evCurrentColab) return;
+          document.getElementById('modal-new-ev-colab').value = evCurrentColab;
+          document.getElementById('modal-new-ev-title').textContent = 'Nova Avaliação — ' + evCurrentColab;
+          document.getElementById('modal-new-ev-date').value = new Date().toISOString().split('T')[0];
+          document.getElementById('modal-new-ev-obs').value = '';
+
+          document.getElementById('modal-new-ev-criteria-list').innerHTML = EV_CRITERIA.map((c, i) => `
+            <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-sm);padding:14px 16px;">
+              <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px;">
+                <div style="flex:1;">
+                  <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px;">${c.name} <span style="font-size:11px;color:var(--muted);font-weight:400;">(peso ${c.weight})</span></div>
+                  <div style="font-size:11px;color:var(--sub);line-height:1.5;">${c.desc}</div>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:6px;">
+                <span style="font-size:11px;color:var(--muted);font-weight:500;">Nota:</span>
+                ${[1,2,3,4,5].map(n=>`<button type="button" onclick="evSetScore(${i},${n})" id="evbtn-${i}-${n}" style="width:32px;height:32px;border-radius:6px;border:1.5px solid var(--border);background:var(--surface);font-size:13px;font-weight:700;cursor:pointer;transition:all .1s;color:var(--sub);">${n}</button>`).join('')}
+                <span style="font-size:13px;font-weight:700;color:var(--accent);margin-left:6px;">= <span id="evscore-result-${i}">0</span> pts</span>
+              </div>
+              <input type="hidden" id="evscore-${i}" value="5" data-weight="${c.weight}">
+            </div>`).join('');
+
+          // Set default score 5
+          EV_CRITERIA.forEach((c, i) => evSetScore(i, 5));
+
+          openModal('modal-new-evaluation');
+        }
+
+        function evSetScore(criteriaIdx, score) {
+          document.getElementById('evscore-' + criteriaIdx).value = score;
+          document.getElementById('evscore-result-' + criteriaIdx).textContent = score * EV_CRITERIA[criteriaIdx].weight;
+          [1,2,3,4,5].forEach(n => {
+            const btn = document.getElementById('evbtn-' + criteriaIdx + '-' + n);
+            if (!btn) return;
+            if (n <= score) {
+              btn.style.background = 'var(--accent)';
+              btn.style.color = '#fff';
+              btn.style.borderColor = 'var(--accent)';
+            } else {
+              btn.style.background = 'var(--surface)';
+              btn.style.color = 'var(--sub)';
+              btn.style.borderColor = 'var(--border)';
+            }
+          });
+          // Recalc total
+          let total = 0;
+          EV_CRITERIA.forEach((c, i) => {
+            const inp = document.getElementById('evscore-' + i);
+            if (inp) total += (Number(inp.value) || 0) * c.weight;
+          });
+          document.getElementById('modal-new-ev-total').textContent = total + ' / 75';
+        }
+
+        function saveNewEvaluationModal() {
+          const colab = document.getElementById('modal-new-ev-colab').value;
+          const date = document.getElementById('modal-new-ev-date').value;
+          if (!colab || !date) { toast('Preencha todos os campos.', 'error'); return; }
+
+          let total = 0;
+          const criteria = EV_CRITERIA.map((c, i) => {
+            const score = Number(document.getElementById('evscore-' + i)?.value) || 0;
+            total += score * c.weight;
+            return { name: c.name, score, weight: c.weight };
+          });
+
+          db.collection('evaluations').add({
+            colab, date, score: total,
+            obs: document.getElementById('modal-new-ev-obs').value || '',
+            criteria,
+            createdAt: new Date().toISOString()
+          }).then(() => {
+            toast('Avaliação salva com sucesso!');
+            closeModal('modal-new-evaluation');
+            loadColabProfile(colab);
+          }).catch(() => toast('Erro ao salvar avaliação.', 'error'));
+        }
+
+        function openAddRecord() {
+          if (!evCurrentColab) return;
+          document.getElementById('record-date').value = new Date().toISOString().split('T')[0];
+          document.getElementById('record-desc').value = '';
+          document.getElementById('record-type').value = 'positivo';
+          openModal('modal-add-record');
+        }
+
+        function saveRecord() {
+          const colab = evCurrentColab;
+          const date = document.getElementById('record-date').value;
+          const desc = document.getElementById('record-desc').value.trim();
+          const type = document.getElementById('record-type').value;
+          if (!desc) { toast('Descreva o registro antes de salvar.', 'error'); return; }
+          db.collection('ev_records').add({ colab, date, desc, type, createdAt: new Date().toISOString() }).then(() => {
+            toast('Registro adicionado!');
+            closeModal('modal-add-record');
+            loadRecords(colab);
+          }).catch(() => toast('Erro ao salvar registro.', 'error'));
+        }
+
+        function deleteRecord(id) {
+          if (!confirm('Remover este registro?')) return;
+          db.collection('ev_records').doc(id).delete().then(() => {
+            toast('Registro removido.');
+            if (evCurrentColab) loadRecords(evCurrentColab);
+          });
+        }
+
+        function saveManagerObs() {
+          const colab = evCurrentColab;
+          const obs = document.getElementById('ev-manager-obs').value.trim();
+          db.collection('ev_manager_obs').doc(colab).set({ obs, updatedAt: new Date().toISOString() }).then(() => toast('Observação salva!')).catch(() => toast('Erro ao salvar.','error'));
+        }
+
+        function deleteEvaluation(id) {
+          if (!confirm('Deseja excluir esta avaliação?')) return;
+          db.collection('evaluations').doc(id).delete().then(() => {
+            toast('Avaliação excluída!');
+            if (evCurrentColab) loadColabProfile(evCurrentColab);
+            else renderEvaluations();
+          });
+        }
+
+        function editEvaluation(id) {
+          editingEvaluationId = id;
+          const x = evaluations.find(e => e.id === id);
+          if (!x) { toast('Avaliação não encontrada.', 'error'); return; }
+          document.getElementById('modal-ev-date').value = x.date || '';
+          document.getElementById('modal-ev-obs').value = x.obs || '';
+          document.getElementById('modal-ev-title').innerText = 'Editar Avaliação — ' + x.colab;
+          const box = document.getElementById('modal-ev-fields');
+          const criteria = x.criteria || [];
+          box.innerHTML = criteria.length ? criteria.map(c => `
+            <div class="fg full">
+              <label>${c.name}</label>
+              <div style="font-size:11px;color:var(--sub);margin-top:-2px;margin-bottom:6px;">${EV_CRITERIA.find(e=>e.name===c.name)?.desc || ''}</div>
+              <input class="modal-score" data-name="${c.name}" data-weight="${c.weight||0}" type="number" min="1" max="5" value="${c.score}">
+            </div>`).join('') : '<p style="color:var(--sub);font-size:13px;">Avaliação antiga sem critérios detalhados.</p>';
+          openModal('modal-edit-evaluation');
+        }
+
+        function saveModalEvaluation() {
+          if (!editingEvaluationId) return;
+          const criteria = Array.from(document.querySelectorAll('.modal-score')).map(i => ({
+            name: i.dataset.name, score: Number(i.value) || 0, weight: Number(i.dataset.weight) || 0
+          }));
+          const total = criteria.reduce((a, c) => a + (c.score * (c.weight || 0)), 0);
+          db.collection('evaluations').doc(editingEvaluationId).update({
+            date: document.getElementById('modal-ev-date').value,
+            obs: document.getElementById('modal-ev-obs').value,
+            criteria, score: total || 0
+          }).then(() => {
+            toast('Avaliação atualizada!');
+            closeModal('modal-edit-evaluation');
+            if (evCurrentColab) loadColabProfile(evCurrentColab);
+          }).catch(() => toast('Erro ao atualizar avaliação.', 'error'));
+        }
+
+        function printEvaluation(id) {
+          const x = evaluations.find(e => e.id === id);
+          if (!x) { toast('Avaliação não encontrada.', 'error'); return; }
+          const rows = (x.criteria || []).map(c => {
+            const desc = EV_CRITERIA.find(e => e.name === c.name)?.desc || '';
+            return `<tr><td><strong>${c.name}</strong>${desc?`<br><small style="color:#6b6f8a;">${desc}</small>`:''}</td><td style="text-align:center;">${c.weight || '-'}</td><td style="text-align:center;">${c.score}/5</td><td style="text-align:center;font-weight:700;">${(c.weight||0)*c.score}</td></tr>`;
+          }).join('');
+          const sc = getScoreStyle(Number(x.score || 0));
+          const w = window.open('', '_blank');
+          w.document.write(`<html><head><title>Avaliação FAUKO — ${x.colab}</title>
+          <style>body{font-family:Arial,sans-serif;padding:40px;color:#1a1d2e;max-width:800px;margin:0 auto}.header{text-align:center;border-bottom:2px solid #4f46e5;padding-bottom:16px;margin-bottom:24px}.badge{display:inline-block;padding:4px 12px;border-radius:20px;font-weight:700;font-size:14px;background:${sc.bg};color:${sc.color};}.card{border:1px solid #e4e6f0;border-radius:12px;padding:20px;margin-bottom:16px}.nota{font-size:36px;font-weight:800;color:${sc.color};}table{width:100%;border-collapse:collapse;font-size:13px;}td,th{padding:10px 12px;border-bottom:1px solid #eee;text-align:left;}th{background:#f5f6fa;font-weight:600;}</style></head><body>
+          <div class="header"><h2 style="margin:0 0 4px;">Avaliação de Colaborador — FAUKO</h2><p style="color:#6b6f8a;margin:0;font-size:13px;">Gerado em ${new Date().toLocaleDateString('pt-BR')} às ${new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}</p></div>
+          <div class="card" style="display:grid;grid-template-columns:1fr auto;align-items:center;"><div><strong>Colaborador:</strong> ${x.colab}<br><strong>Data:</strong> ${fmtDate(x.date)}</div><div style="text-align:center;"><div class="nota">${x.score}</div><div style="font-size:11px;color:#6b6f8a;">de 75 pontos</div><div class="badge">${sc.label}</div></div></div>
+          <div class="card"><h3 style="margin:0 0 12px;">Critérios Avaliados</h3><table><thead><tr><th>Critério</th><th style="text-align:center;">Peso</th><th style="text-align:center;">Nota</th><th style="text-align:center;">Resultado</th></tr></thead><tbody>${rows}</tbody></table></div>
+          ${x.obs ? `<div class="card"><strong>Observações do Gestor:</strong><p style="margin-top:8px;color:#444;">${x.obs}</p></div>` : ''}
+          </body></html>`);
+          w.document.close();
+          w.print();
+        }
+
+        function calcLiveScore() { return 0; } // kept for compatibility
+
+function buildNav() {
             const menu = document.getElementById('nav-menu');
             menu.innerHTML = '';
             const isMaster = currentUser.key === 'master';
@@ -2185,6 +2941,7 @@
                 { id: 'all-prospects', icon: 'person_search', label: 'Prospecções Geral' },
                 { id: 'reports', icon: 'analytics', label: 'Relatórios' },
                 { id: 'users', icon: 'people', label: 'Equipe' },
+                { id: 'evaluation', icon: 'fact_check', label: 'Avaliações (Master)' },
                 { id: 'profile', icon: 'account_circle', label: 'Configurações' }
             ] : [
                 { id: 'my-sales', icon: 'receipt_long', label: 'Minhas Vendas' },
@@ -2210,6 +2967,7 @@
             'all-prospects': { title: 'Mapeamento de Prospecções', sub: 'Controle central de leads da equipe' },
             'reports': { title: 'Relatórios Avançados', sub: 'Filtros estratégicos por colaborador e período' },
             'users': { title: 'Controle de Usuários', sub: 'Configuração de acessos do Firebase' },
+            'evaluation': { title: 'Avaliação de Colaboradores', sub: 'Controle exclusivo do perfil Master' },
             'profile': { title: 'Configurações de Perfil', sub: 'Mantenha seus dados atualizados' },
             'my-sales': { title: 'Minhas Vendas e Conversões', sub: 'Acompanhamento do seu desempenho pessoal' },
             'new-sale': { title: 'Lançar Venda', sub: 'Registrar novo fechamento' },
@@ -2218,6 +2976,7 @@
         };
 
         function goTo(page) {
+            if(page==='evaluation') setTimeout(renderEvaluationPage,100);
             currentPage = page;
             document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
@@ -2266,12 +3025,12 @@
             if (!s.parcelas || s.parcelas.length === 0) {
                 // Sem parcelas: comissão cai no mês da venda
                 const d = new Date((s.date || '') + 'T12:00');
-                if (d.getFullYear() === ano && (d.getMonth()+1) === mes) return (s.value||0) * 0.025;
+                if (d.getFullYear() === ano && (d.getMonth() + 1) === mes) return (s.value || 0) * 0.025;
                 return 0;
             }
             return s.parcelas
                 .filter(p => p.pago && p.ano == ano && p.mes == mes)
-                .reduce((acc, p) => acc + (parseFloat(p.valor)||0), 0) * 0.025;
+                .reduce((acc, p) => acc + (parseFloat(p.valor) || 0), 0) * 0.025;
         }
         function commRate(payment) {
             return 0.025; // Sempre 2,5%
@@ -2306,11 +3065,11 @@
                 <span style="font-size:12px;color:var(--sub);font-weight:600;min-width:22px;">#${document.querySelectorAll('#' + container + ' .parcela-row').length + 1}</span>
                 <input type="number" placeholder="Valor (R$)" value="${valor}" step="0.01" style="width:120px;padding:5px 8px;border:1.5px solid var(--border);border-radius:6px;font-size:13px;">
                 <select style="padding:5px 8px;border:1.5px solid var(--border);border-radius:6px;font-size:12px;">
-                    ${[1,2,3,4,5,6,7,8,9,10,11,12].map(m => `<option value="${m}" ${m==defaultMes?'selected':''}>${['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'][m-1]}</option>`).join('')}
+                    ${[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(m => `<option value="${m}" ${m == defaultMes ? 'selected' : ''}>${['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'][m - 1]}</option>`).join('')}
                 </select>
                 <input type="number" placeholder="Ano" value="${defaultAno}" style="width:72px;padding:5px 8px;border:1.5px solid var(--border);border-radius:6px;font-size:13px;">
                 <label style="display:flex;align-items:center;gap:4px;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;">
-                    <input type="checkbox" ${pago?'checked':''} style="width:14px;height:14px;cursor:pointer;"> Pago
+                    <input type="checkbox" ${pago ? 'checked' : ''} style="width:14px;height:14px;cursor:pointer;"> Pago
                 </label>
                 <button type="button" onclick="this.closest('.parcela-row').remove()" style="background:var(--red-lt);color:var(--red);border:none;border-radius:6px;padding:4px 7px;cursor:pointer;font-size:11px;">✕</button>
             `;
@@ -2333,7 +3092,7 @@
         function paymentBadge(p) {
             if (!p) return '<span style="color:var(--muted)">—</span>';
             const icons = { 'À Vista': 'payments', 'Parcelado': 'credit_card', 'Boleto': 'receipt', 'Outro': 'more_horiz' };
-            return `<span class="badge-payment"><i class="material-icons" style="font-size:12px;">${icons[p]||'payments'}</i>${p}</span>`;
+            return `<span class="badge-payment"><i class="material-icons" style="font-size:12px;">${icons[p] || 'payments'}</i>${p}</span>`;
         }
 
         function toast(msg, type = 'success') {
@@ -2461,7 +3220,7 @@
         // ═══════════════════════════════════
         // PROSPECÇÃO COMPLETA - LÓGICA
         // ═══════════════════════════════════
-        const PROSPECT_REQUIRED_FIELDS = ['date','client','cnpj','segment','city','contact','phone','email','products','status','next','returndate'];
+        const PROSPECT_REQUIRED_FIELDS = ['date', 'client', 'cnpj', 'segment', 'city', 'contact', 'phone', 'email', 'products', 'status', 'next', 'returndate'];
         const notifiedCompleteProspects = new Set();
 
         function isProspectComplete(p) {
@@ -2474,7 +3233,7 @@
             notifiedCompleteProspects.add(p.id);
 
             const now = new Date();
-            const dtStr = now.toLocaleDateString('pt-BR') + ' às ' + now.toLocaleTimeString('pt-BR', {hour:'2-digit',minute:'2-digit'});
+            const dtStr = now.toLocaleDateString('pt-BR') + ' às ' + now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
 
             const notif = document.createElement('div');
             notif.className = 'master-notification';
@@ -2522,7 +3281,7 @@
             const sellers = getActiveSellers();
             const selects = [
                 { id: 'fp-seller', allLabel: 'Todos os colaboradores' },
-                { id: 'f-seller',  allLabel: 'Todos os colaboradores' },
+                { id: 'f-seller', allLabel: 'Todos os colaboradores' },
                 { id: 'rep-seller', allLabel: '— Toda a Equipe —' },
             ];
             selects.forEach(({ id, allLabel }) => {
@@ -2535,31 +3294,31 @@
         }
 
         function clearProspectFilters() {
-            ['fp-search','fp-seller','fp-status','fp-month','fp-year'].forEach(id => {
+            ['fp-search', 'fp-seller', 'fp-status', 'fp-month', 'fp-year'].forEach(id => {
                 const el = document.getElementById(id); if (el) el.value = '';
             });
             renderAllProspects();
         }
 
         function renderAllProspects() {
-            const search   = (document.getElementById('fp-search')?.value || '').toLowerCase();
-            const fSel     = document.getElementById('fp-seller')?.value || '';
-            const fSt      = document.getElementById('fp-status')?.value || '';
-            const fMonth   = document.getElementById('fp-month')?.value || '';
-            const fYear    = document.getElementById('fp-year')?.value || '';
+            const search = (document.getElementById('fp-search')?.value || '').toLowerCase();
+            const fSel = document.getElementById('fp-seller')?.value || '';
+            const fSt = document.getElementById('fp-status')?.value || '';
+            const fMonth = document.getElementById('fp-month')?.value || '';
+            const fYear = document.getElementById('fp-year')?.value || '';
 
             // Populate year dropdown from prospects data
             const yearSel = document.getElementById('fp-year');
             if (yearSel) {
-                const years = [...new Set(prospects.map(p => new Date(p.date + 'T12:00').getFullYear()))].sort((a,b) => b-a);
+                const years = [...new Set(prospects.map(p => new Date(p.date + 'T12:00').getFullYear()))].sort((a, b) => b - a);
                 const curYear = yearSel.value;
-                yearSel.innerHTML = '<option value="">Todos</option>' + years.map(y => `<option value="${y}" ${y == curYear ? 'selected':''}>${y}</option>`).join('');
+                yearSel.innerHTML = '<option value="">Todos</option>' + years.map(y => `<option value="${y}" ${y == curYear ? 'selected' : ''}>${y}</option>`).join('');
             }
 
             // Refresh seller selects to reflect current users
             refreshSellerSelects();
 
-            const MONTHS_PT = ['','Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+            const MONTHS_PT = ['', 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
 
             // ── Stats cards (sobre TODOS os prospects do período, sem filtro de texto) ──
             const activeSellersSetP = new Set(getActiveSellers().map(s => s.name));
@@ -2570,15 +3329,15 @@
                 if (fSt && p.status !== fSt) return false;
                 if (fMonth || fYear) {
                     const d = new Date(p.date + 'T12:00');
-                    if (fMonth && (d.getMonth()+1) != parseInt(fMonth)) return false;
+                    if (fMonth && (d.getMonth() + 1) != parseInt(fMonth)) return false;
                     if (fYear && d.getFullYear() != parseInt(fYear)) return false;
                 }
                 return true;
             });
 
-            const totalP   = forStats.length;
-            const convP    = forStats.filter(p => p.status === 'Convertido').length;
-            const activeP  = forStats.filter(p => p.status !== 'Convertido' && p.status !== 'Perdido').length;
+            const totalP = forStats.length;
+            const convP = forStats.filter(p => p.status === 'Convertido').length;
+            const activeP = forStats.filter(p => p.status !== 'Convertido' && p.status !== 'Perdido').length;
             const perdidoP = forStats.filter(p => p.status === 'Perdido').length;
             const convRate = totalP > 0 ? Math.round((convP / totalP) * 100) : 0;
 
@@ -2714,7 +3473,7 @@
         function renderUsers() {
             const tbody = document.getElementById('users-body'); tbody.innerHTML = '';
             for (let key in dynamicUsers) {
-                tbody.innerHTML += `<tr><td>${key}</td><td>${dynamicUsers[key].name}</td><td>${dynamicUsers[key].role}</td><td>${key === 'master' ? '—' : `<button class="btn btn-danger" style="padding:4px 8px;" onclick="deleteUser('${key}')">Remover</button>`}</td></tr>`;
+                tbody.innerHTML += `<tr><td>${key}</td><td><span style="display:inline-flex;align-items:center;gap:8px"><span style="width:14px;height:14px;border-radius:50%;background:${dynamicUsers[key].color || '#4f46e5'};display:inline-block"></span>${dynamicUsers[key].name}</span></td><td>${dynamicUsers[key].role}</td><td>${key === 'master' ? '—' : `<input type="color" value="${dynamicUsers[key].color || '#4f46e5'}" onchange="updateUserColor('${key}',this.value)" style="width:35px;height:28px;vertical-align:middle;cursor:pointer"><button class="btn btn-danger" style="padding:4px 8px;margin-left:8px;" onclick="deleteUser('${key}')">Remover</button>`}</td></tr>`;
             }
         }
 
@@ -2723,7 +3482,7 @@
             const name = document.getElementById('nu-name').value.trim();
             const role = document.getElementById('nu-role').value;
             const pw = document.getElementById('nu-pw').value.trim();
-            if (!key || !name || !pw) return;
+            if (!key || !name || (role !== 'Colaborador' && !pw)) return;
 
             const palette = ['#10b981', '#f59e0b', '#3b82f6', '#8b5cf6', '#ec4899', '#14b8a6', '#f43f5e'];
             const randomColor = palette[Math.floor(Math.random() * palette.length)];
@@ -2741,6 +3500,14 @@
                 document.getElementById('nu-pw').value = '';
             });
         }
+
+
+function updateUserColor(key,color){
+    const bg='rgba(79,70,229,0.15)';
+    db.collection('users').doc(key).update({color: color, bg: bg}).then(()=>{
+        toast('Cor do usuário atualizada!');
+    });
+}
 
         function deleteUser(key) {
             const userName = dynamicUsers[key]?.name || key;
@@ -2808,7 +3575,7 @@
             // Populate year and day dropdowns based on seller's sales
             const name = currentUser ? currentUser.name : '';
             const mySales = sales.filter(s => s.seller === name);
-            const years = [...new Set(mySales.map(s => new Date(s.date + 'T12:00').getFullYear()))].sort((a,b) => b - a);
+            const years = [...new Set(mySales.map(s => new Date(s.date + 'T12:00').getFullYear()))].sort((a, b) => b - a);
             const yearSel = document.getElementById('fm-year');
             if (yearSel) {
                 const curYear = yearSel.value;
@@ -2867,7 +3634,7 @@
 
             // Build active filter badge
             const filterParts = [];
-            const MONTHS_PT = ['','Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+            const MONTHS_PT = ['', 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
             if (fMonth) filterParts.push(MONTHS_PT[parseInt(fMonth)]);
             if (fYear) filterParts.push(fYear);
             if (fDay) filterParts.push(`Dia ${fDay}`);
@@ -2937,7 +3704,7 @@
         }
 
         function clearMyProspectFilters() {
-            ['fmp-search','fmp-status'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+            ['fmp-search', 'fmp-status'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
             renderMyProspects();
         }
 
@@ -2948,7 +3715,7 @@
             let mine = prospects.filter(p => {
                 if (p.seller !== currentUser.name) return false;
                 if (fSt && p.status !== fSt) return false;
-                if (search && !p.client.toLowerCase().includes(search) && !(p.contact||'').toLowerCase().includes(search)) return false;
+                if (search && !p.client.toLowerCase().includes(search) && !(p.contact || '').toLowerCase().includes(search)) return false;
                 return true;
             });
 
@@ -2972,8 +3739,8 @@
 
             document.getElementById('my-prospects-stats').innerHTML = `
                 <div class="my-stat"><div class="ms-lbl">Total Leads</div><div class="ms-val">${allMine.length}</div></div>
-                <div class="my-stat"><div class="ms-lbl">Em Aberto</div><div class="ms-val">${allMine.filter(p=>p.status!=='Convertido'&&p.status!=='Perdido').length}</div></div>
-                <div class="my-stat"><div class="ms-lbl">Convertidos</div><div class="ms-val" style="color:var(--green)">${allMine.filter(p=>p.status==='Convertido').length}</div></div>
+                <div class="my-stat"><div class="ms-lbl">Em Aberto</div><div class="ms-val">${allMine.filter(p => p.status !== 'Convertido' && p.status !== 'Perdido').length}</div></div>
+                <div class="my-stat"><div class="ms-lbl">Convertidos</div><div class="ms-val" style="color:var(--green)">${allMine.filter(p => p.status === 'Convertido').length}</div></div>
             `;
 
             if (!activeLeads.length) {
@@ -3087,7 +3854,7 @@
 
         function checkDuplicateProspect(editingId = null) {
             const client = (document.getElementById('np-client')?.value || '').trim().toLowerCase();
-            const cnpj = (document.getElementById('np-cnpj')?.value || '').trim().replace(/\D/g,'');
+            const cnpj = (document.getElementById('np-cnpj')?.value || '').trim().replace(/\D/g, '');
             const warn = document.getElementById('np-dup-warn');
             const msg = document.getElementById('np-dup-msg');
             if (!warn) return false;
@@ -3096,7 +3863,7 @@
             const dup = prospects.find(p => {
                 if (editingId && p.id === editingId) return false;
                 const nameMatch = p.client.toLowerCase().includes(client) || client.includes(p.client.toLowerCase());
-                const cnpjMatch = cnpj && (p.cnpj||'').replace(/\D/g,'') === cnpj && cnpj.length >= 11;
+                const cnpjMatch = cnpj && (p.cnpj || '').replace(/\D/g, '') === cnpj && cnpj.length >= 11;
                 return nameMatch || cnpjMatch;
             });
             if (dup) {
@@ -3127,10 +3894,10 @@
             if (!date || !client) { toast('Preencha a data e o cliente', 'error'); return; }
 
             // Bloqueia duplicata se nome OU CNPJ já existirem
-            const cnpj = (document.getElementById('np-cnpj')?.value || '').trim().replace(/\D/g,'');
+            const cnpj = (document.getElementById('np-cnpj')?.value || '').trim().replace(/\D/g, '');
             const dup = prospects.find(p =>
                 p.client.toLowerCase() === client.toLowerCase() ||
-                (cnpj && (p.cnpj||'').replace(/\D/g,'') === cnpj)
+                (cnpj && (p.cnpj || '').replace(/\D/g, '') === cnpj)
             );
             if (dup) {
                 toast(`Lead já cadastrado por ${dup.seller}! Cadastro bloqueado.`, 'error');
@@ -3176,11 +3943,13 @@
             const p = prospects.find(x => x.id === id);
             if (!p) return;
             editingProspectId = id;
-            const fields = { 'ep-date': p.date, 'ep-client': p.client, 'ep-cnpj': p.cnpj||'', 'ep-segment': p.segment||'',
-                'ep-city': p.city||'', 'ep-contact': p.contact||'', 'ep-role': p.role||'', 'ep-phone': p.phone||'',
-                'ep-email': p.email||'', 'ep-origin': p.origin||'', 'ep-method': p.method||'',
-                'ep-products': p.products||'', 'ep-next': p.next||'', 'ep-returndate': p.returndate||'', 'ep-obs': p.obs||'' };
-            Object.entries(fields).forEach(([k,v]) => { const el = document.getElementById(k); if(el) el.value = v; });
+            const fields = {
+                'ep-date': p.date, 'ep-client': p.client, 'ep-cnpj': p.cnpj || '', 'ep-segment': p.segment || '',
+                'ep-city': p.city || '', 'ep-contact': p.contact || '', 'ep-role': p.role || '', 'ep-phone': p.phone || '',
+                'ep-email': p.email || '', 'ep-origin': p.origin || '', 'ep-method': p.method || '',
+                'ep-products': p.products || '', 'ep-next': p.next || '', 'ep-returndate': p.returndate || '', 'ep-obs': p.obs || ''
+            };
+            Object.entries(fields).forEach(([k, v]) => { const el = document.getElementById(k); if (el) el.value = v; });
             // Set selects
             const typeEl = document.getElementById('ep-type');
             if (typeEl) { [...typeEl.options].forEach(o => o.selected = o.value === p.type); }
@@ -3236,7 +4005,7 @@
             const stEl = document.getElementById('es-status');
             if (stEl) { [...stEl.options].forEach(o => o.selected = o.value === s.status); }
             const payEl = document.getElementById('es-payment');
-            if (payEl) { [...payEl.options].forEach(o => o.selected = o.value === (s.payment||'À Vista')); }
+            if (payEl) { [...payEl.options].forEach(o => o.selected = o.value === (s.payment || 'À Vista')); }
             // Carrega parcelas existentes
             const listEl = document.getElementById('es-parcelas-list');
             if (listEl) {
@@ -3280,7 +4049,7 @@
         }
 
         // Fechar modal ao clicar fora
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             if (e.target.classList.contains('modal-overlay')) {
                 e.target.classList.remove('open');
             }
@@ -3293,10 +4062,10 @@
             const fSel = document.getElementById('rep-seller')?.value || '';
             const start = document.getElementById('rep-start-date')?.value || '';
             const end = document.getElementById('rep-end-date')?.value || '';
-            const MONTHS_PT = ['','Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+            const MONTHS_PT = ['', 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
 
             // Build subtitle for print header
-            let subtitle = 'Gerado em ' + new Date().toLocaleDateString('pt-BR') + ' às ' + new Date().toLocaleTimeString('pt-BR', {hour:'2-digit',minute:'2-digit'});
+            let subtitle = 'Gerado em ' + new Date().toLocaleDateString('pt-BR') + ' às ' + new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
             if (fSel) subtitle += ' | Vendas: ' + fSel;
             if (start) subtitle += ' | De: ' + fmtDate(start);
             if (end) subtitle += ' | Até: ' + fmtDate(end);
@@ -3324,7 +4093,98 @@
             }, 100);
         }
         // Os ouvintes do Firebase já estão configurados em initFirebaseListeners() acima.
+        function toggleAuthFields() {
+            const role = document.getElementById('nu-role').value;
+            const authFields = document.getElementById('auth-fields');
+            authFields.style.display = (role === 'Colaborador') ? 'none' : 'block';
+            if(role==='Colaborador') document.getElementById('nu-pw').value='';
+        }
+        // 1. No array "items" do isMaster na função buildNav(), adicione a linha:
+        { id: 'evaluations', icon = 'fact_check', label = 'Planilha de Avaliações' };
+
+        // 2. Adicione nas rotas de páginas na função goTo(page):
+        if (page === 'evaluations') renderEvaluations();
+
     </script>
+
+<!-- MODAL: NOVA AVALIAÇÃO POR COLABORADOR -->
+<div class="modal-overlay" id="modal-new-evaluation">
+  <div class="modal-box" style="max-width:700px;">
+    <div class="modal-header">
+      <h3><i class="material-icons" style="font-size:17px;vertical-align:middle;margin-right:6px;color:var(--accent);">fact_check</i><span id="modal-new-ev-title">Nova Avaliação</span></h3>
+      <button class="modal-close" onclick="closeModal('modal-new-evaluation')"><i class="material-icons">close</i></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-grid" style="margin-bottom:20px;">
+        <div class="fg"><label>Colaborador</label><input id="modal-new-ev-colab" type="text" readonly style="background:var(--surface2);"></div>
+        <div class="fg"><label>Data da Avaliação</label><input id="modal-new-ev-date" type="date"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;" id="modal-new-ev-criteria-list"></div>
+      <div style="margin-top:16px;padding:12px 16px;background:var(--accent-lt);border:1px solid #c7d2fe;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:space-between;">
+        <span style="font-size:13px;font-weight:600;color:var(--accent);">Nota Final:</span>
+        <span id="modal-new-ev-total" style="font-size:22px;font-weight:800;color:var(--accent);">0 / 75</span>
+      </div>
+      <div class="fg full" style="margin-top:16px;">
+        <label>Observações gerais desta avaliação</label>
+        <textarea id="modal-new-ev-obs" rows="3" style="padding:10px 12px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:13px;font-family:'Inter',sans-serif;resize:vertical;outline:none;color:var(--text);width:100%;"></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" onclick="saveNewEvaluationModal()"><i class="material-icons" style="font-size:16px;">save</i> Salvar Avaliação</button>
+      <button class="btn btn-outline" onclick="closeModal('modal-new-evaluation')">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: ADICIONAR REGISTRO RÁPIDO -->
+<div class="modal-overlay" id="modal-add-record">
+  <div class="modal-box" style="max-width:520px;">
+    <div class="modal-header">
+      <h3><i class="material-icons" style="font-size:17px;vertical-align:middle;margin-right:6px;color:var(--amber);">sticky_note_2</i>Adicionar Registro</h3>
+      <button class="modal-close" onclick="closeModal('modal-add-record')"><i class="material-icons">close</i></button>
+    </div>
+    <div class="modal-body">
+      <div class="fg" style="margin-bottom:14px;">
+        <label>Data</label>
+        <input id="record-date" type="date">
+      </div>
+      <div class="fg" style="margin-bottom:14px;">
+        <label>Tipo</label>
+        <select id="record-type" style="padding:10px 12px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:13px;outline:none;width:100%;">
+          <option value="positivo">✅ Ponto positivo</option>
+          <option value="atencao">⚠️ Ponto de atenção</option>
+          <option value="melhoria">🎯 Oportunidade de melhoria</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label>Descrição</label>
+        <textarea id="record-desc" rows="4" placeholder="Descreva o ocorrido, comportamento ou observação..." style="padding:10px 12px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:13px;font-family:'Inter',sans-serif;resize:vertical;outline:none;color:var(--text);width:100%;"></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" onclick="saveRecord()"><i class="material-icons" style="font-size:16px;">save</i> Salvar Registro</button>
+      <button class="btn btn-outline" onclick="closeModal('modal-add-record')">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-edit-evaluation">
+ <div class="modal-box" style="max-width:600px">
+  <div class="modal-header">
+   <h3 id="modal-ev-title">Editar Avaliação</h3>
+   <button class="modal-close" onclick="closeModal('modal-edit-evaluation')">×</button>
+  </div>
+  <div class="modal-body">
+   <div class="fg"><label>Data</label><input id="modal-ev-date" type="date"></div>
+   <div id="modal-ev-fields" class="form-grid"></div><div class="fg full"><label>Observações</label><textarea id="modal-ev-obs" rows="5"></textarea></div>
+  </div>
+  <div class="modal-footer">
+   <button class="btn btn-primary" onclick="saveModalEvaluation()">Salvar</button>
+   <button class="btn btn-outline" onclick="closeModal('modal-edit-evaluation')">Cancelar</button>
+  </div>
+ </div>
+</div>
+
 </body>
 
 </html>
