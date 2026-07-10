@@ -76,208 +76,6 @@
             line-height: 1;
         }
 
-
-        /* ═══════════════════════════════════
-   CARDS DE VENDAS E PROSPECÇÕES (v1.1)
-═══════════════════════════════════ */
-        .sale-card {
-            background: var(--surface);
-            border: 1.5px solid var(--border);
-            border-radius: var(--r);
-            padding: 18px 20px;
-            cursor: pointer;
-            transition: box-shadow 0.18s, border-color 0.18s, transform 0.12s;
-            position: relative;
-            overflow: hidden;
-        }
-        .sale-card:hover {
-            box-shadow: var(--shadow-md);
-            border-color: var(--accent);
-            transform: translateY(-2px);
-        }
-        .sale-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: var(--accent);
-            border-radius: var(--r) var(--r) 0 0;
-        }
-        .sale-card.status-concluida::before { background: var(--green); }
-        .sale-card.status-andamento::before { background: var(--amber); }
-        .sale-card.status-cancelada::before { background: var(--red); }
-
-        .sale-card-top {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            margin-bottom: 12px;
-            gap: 10px;
-        }
-        .sale-card-client {
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--text);
-            line-height: 1.3;
-        }
-        .sale-card-product {
-            font-size: 12px;
-            color: var(--sub);
-            margin-top: 3px;
-        }
-        .sale-card-value {
-            font-size: 17px;
-            font-weight: 800;
-            color: var(--accent);
-            white-space: nowrap;
-        }
-        .sale-card-meta {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            align-items: center;
-            margin-top: 10px;
-        }
-        .sale-card-date {
-            font-size: 11px;
-            color: var(--muted);
-            display: flex;
-            align-items: center;
-            gap: 3px;
-        }
-        .sale-card-obs {
-            font-size: 11px;
-            color: var(--sub);
-            margin-top: 8px;
-            padding: 7px 10px;
-            background: var(--surface2);
-            border-radius: 6px;
-            display: flex;
-            align-items: flex-start;
-            gap: 5px;
-            line-height: 1.4;
-        }
-        .sale-card-actions {
-            display: flex;
-            gap: 6px;
-            margin-top: 12px;
-            padding-top: 10px;
-            border-top: 1px solid var(--border);
-        }
-
-        /* Cards de prospecção */
-        .prospect-card {
-            background: var(--surface);
-            border: 1.5px solid var(--border);
-            border-radius: var(--r);
-            padding: 18px 20px;
-            cursor: pointer;
-            transition: box-shadow 0.18s, border-color 0.18s, transform 0.12s;
-            position: relative;
-        }
-        .prospect-card:hover {
-            box-shadow: var(--shadow-md);
-            border-color: var(--amber);
-            transform: translateY(-2px);
-        }
-        .prospect-card-header {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            gap: 8px;
-        }
-        .prospect-card-client {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--text);
-            line-height: 1.3;
-        }
-        .prospect-card-info {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6px;
-            margin-top: 10px;
-        }
-        .prospect-card-field {
-            font-size: 11px;
-        }
-        .prospect-card-field span:first-child {
-            color: var(--muted);
-            display: block;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.4px;
-            margin-bottom: 1px;
-        }
-        .prospect-card-field span:last-child {
-            color: var(--text);
-            font-size: 12px;
-        }
-        .prospect-card-actions {
-            display: flex;
-            gap: 6px;
-            margin-top: 12px;
-            padding-top: 10px;
-            border-top: 1px solid var(--border);
-            flex-wrap: wrap;
-        }
-
-        /* Empty state melhorado */
-        .empty-period {
-            grid-column: 1/-1;
-            text-align: center;
-            padding: 64px 24px;
-            background: var(--surface);
-            border-radius: var(--r);
-            border: 1.5px dashed var(--border2);
-        }
-        .empty-period-icon {
-            width: 60px; height: 60px;
-            border-radius: 50%;
-            background: var(--amber-lt);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 16px;
-        }
-        .empty-period-icon i { color: var(--amber); font-size: 28px; }
-        .empty-period h4 { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
-        .empty-period p { font-size: 13px; color: var(--sub); }
-
-        /* Modal de detalhes */
-        .detail-modal-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-        .detail-field label {
-            display: block;
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
-        }
-        .detail-field .detail-val {
-            font-size: 14px;
-            color: var(--text);
-            font-weight: 500;
-        }
-        .detail-field.full { grid-column: 1 / -1; }
-        .detail-section-title {
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--sub);
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
-            margin: 20px 0 12px;
-            padding-bottom: 6px;
-            border-bottom: 1.5px solid var(--border);
-        }
-
         /* ═══════════════════════════════════
    LOGIN
 ═══════════════════════════════════ */
@@ -1836,11 +1634,15 @@
                 <!-- TODAS AS VENDAS (master) -->
                 <div class="page" id="p-all-sales">
                     <div class="filter-bar">
-                        <input type="text" id="f-search" placeholder="Buscar cliente..." oninput="renderAll()" style="min-width:220px">
+                        <input type="text" id="f-search" placeholder="Buscar cliente..." oninput="renderAll()"
+                            style="min-width:220px">
                         <input type="date" id="f-start-date" onchange="renderAll()">
                         <input type="date" id="f-end-date" onchange="renderAll()">
                         <select id="f-seller" onchange="renderAll()">
                             <option value="">Todos os colaboradores</option>
+                            <option value="Ana">Ana</option>
+                            <option value="Ricardo">Ricardo</option>
+                            <option value="Nice">Nice</option>
                         </select>
                         <select id="f-status" onchange="renderAll()">
                             <option value="">Todos os status</option>
@@ -1848,12 +1650,27 @@
                             <option value="Em andamento">Em andamento</option>
                             <option value="Cancelada">Cancelada</option>
                         </select>
-                        <button class="btn btn-ghost" style="padding:6px 10px;font-size:12px;" onclick="clearAllSalesFilters()">
-                            <i class="material-icons" style="font-size:14px;">clear</i> Limpar
-                        </button>
                     </div>
-                    <div id="all-sales-empty" style="display:none;"></div>
-                    <div id="all-sales-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;"></div>
+                    <div class="card">
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Vendas</th>
+                                        <th>Data</th>
+                                        <th>Cliente</th>
+                                        <th>Produto / Serviço</th>
+                                        <th>Valor</th>
+                                        <th>Pagamento</th>
+                                        <th>Comissão</th>
+                                        <th>Status</th>
+                                        <th>Observações</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="all-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- TODAS AS PROSPECÇÕES -->
@@ -1906,8 +1723,29 @@
                         </button>
                     </div>
                     <div id="fp-active-filter" style="margin-bottom:12px;"></div>
-                    <div id="all-prospects-empty" style="display:none;"></div>
-                    <div id="all-prospects-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;"></div>
+                    <div class="card">
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Data</th>
+                                        <th>Empresa/Cliente</th>
+                                        <th>CNPJ</th>
+                                        <th>Tipo</th>
+                                        <th>Segmento</th>
+                                        <th>Cidade/UF</th>
+                                        <th>Contato</th>
+                                        <th>Telefone</th>
+                                        <th>Interesse</th>
+                                        <th>Status</th>
+                                        <th>Responsável</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="all-prospects-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- RELATÓRIOS -->
@@ -2078,7 +1916,25 @@
                         </button>
                     </div>
                     <div id="fm-active-filter" style="margin-bottom:12px;"></div>
-                    <div id="my-sales-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;"></div>
+                    <div class="card">
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Data</th>
+                                        <th>Cliente</th>
+                                        <th>Produto / Serviço</th>
+                                        <th>Valor</th>
+                                        <th>Pagamento</th>
+                                        <th>Status</th>
+                                        <th>Observações</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="my-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- MINHAS PROSPECÇÕES (vendedor) -->
@@ -2109,22 +1965,35 @@
                         </button>
                     </div>
                     <div id="fmp-active-filter" style="margin-bottom:12px;"></div>
-                    <div id="my-prospects-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;"></div>
+                    <div class="card">
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Data</th>
+                                        <th>Empresa / Cliente</th>
+                                        <th>CNPJ</th>
+                                        <th>Segmento</th>
+                                        <th>Cidade / UF</th>
+                                        <th>Contato Principal</th>
+                                        <th>Produtos / Interesse</th>
+                                        <th>Status</th>
+                                        <th>Próxima Ação</th>
+                                        <th>Retorno</th>
+                                        <th>Observações</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="my-prospects-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- NOVA VENDA -->
                 <div class="page" id="p-new-sale">
-                    <div class="form-section" style="max-width:720px;">
-                        <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px;">
-                            <div style="width:38px;height:38px;background:var(--accent-lt);border-radius:10px;display:flex;align-items:center;justify-content:center;">
-                                <i class="material-icons" style="color:var(--accent);font-size:20px;">add_shopping_cart</i>
-                            </div>
-                            <div>
-                                <h3 style="margin:0;font-size:17px;font-weight:700;">Registrar Nova Venda</h3>
-                                <p style="margin:0;font-size:12px;color:var(--sub);">Preencha os dados da venda abaixo</p>
-                            </div>
-                        </div>
-                        <hr style="border:none;border-top:1.5px solid var(--border);margin:18px 0;">
+                    <div class="form-section">
+                        <h3>Registrar nova venda</h3>
                         <div class="form-grid">
                             <div class="fg"><label>Data da venda *</label><input type="date" id="nv-date"></div>
                             <div class="fg"><label>Nome do cliente *</label><input type="text" id="nv-client"></div>
@@ -2188,17 +2057,8 @@
 
                 <!-- NOVA PROSPECÇÃO -->
                 <div class="page" id="p-new-prospect">
-                    <div class="form-section" style="max-width:900px;">
-                        <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px;">
-                            <div style="width:38px;height:38px;background:var(--amber-lt);border-radius:10px;display:flex;align-items:center;justify-content:center;">
-                                <i class="material-icons" style="color:var(--amber);font-size:20px;">person_search</i>
-                            </div>
-                            <div>
-                                <h3 style="margin:0;font-size:17px;font-weight:700;">Nova Prospecção de Lead</h3>
-                                <p style="margin:0;font-size:12px;color:var(--sub);">Registre um novo lead para acompanhamento</p>
-                            </div>
-                        </div>
-                        <hr style="border:none;border-top:1.5px solid var(--border);margin:18px 0;">
+                    <div class="form-section" style="max-width: 900px;">
+                        <h3>Registrar Nova Prospecção de Lead</h3>
                         <div class="form-grid">
                             <div class="fg"><label>Data de Entrada *</label><input type="date" id="np-date"></div>
                             <div class="fg">
@@ -3063,38 +2923,7 @@ let editingEvaluationId = null;
           <div class="card" style="display:grid;grid-template-columns:1fr auto;align-items:center;"><div><strong>Colaborador:</strong> ${x.colab}<br><strong>Data:</strong> ${fmtDate(x.date)}</div><div style="text-align:center;"><div class="nota">${x.score}</div><div style="font-size:11px;color:#6b6f8a;">de 75 pontos</div><div class="badge">${sc.label}</div></div></div>
           <div class="card"><h3 style="margin:0 0 12px;">Critérios Avaliados</h3><table><thead><tr><th>Critério</th><th style="text-align:center;">Peso</th><th style="text-align:center;">Nota</th><th style="text-align:center;">Resultado</th></tr></thead><tbody>${rows}</tbody></table></div>
           ${x.obs ? `<div class="card"><strong>Observações do Gestor:</strong><p style="margin-top:8px;color:#444;">${x.obs}</p></div>` : ''}
-          
-<!-- MODAL: DETALHE DA VENDA -->
-<div class="modal-overlay" id="modal-sale-detail">
-  <div class="modal-box" style="max-width:640px;">
-    <div class="modal-header">
-      <h3><i class="material-icons" style="font-size:17px;vertical-align:middle;margin-right:6px;color:var(--accent);">receipt_long</i><span id="sd-title"></span></h3>
-      <button class="modal-close" onclick="closeModal('modal-sale-detail')"><i class="material-icons">close</i></button>
-    </div>
-    <div class="modal-body" id="sd-body"></div>
-    <div class="modal-footer">
-      <button class="btn btn-outline" onclick="closeModal('modal-sale-detail')">Fechar</button>
-    </div>
-  </div>
-</div>
-
-<!-- MODAL: DETALHE DA PROSPECÇÃO -->
-<div class="modal-overlay" id="modal-prospect-detail">
-  <div class="modal-box" style="max-width:680px;">
-    <div class="modal-header">
-      <h3><i class="material-icons" style="font-size:17px;vertical-align:middle;margin-right:6px;color:var(--amber);">person_search</i><span id="pd-title"></span></h3>
-      <button class="modal-close" onclick="closeModal('modal-prospect-detail')"><i class="material-icons">close</i></button>
-    </div>
-    <div class="modal-body" id="pd-body"></div>
-    <div class="modal-footer">
-      <button class="btn btn-outline" id="pd-btn-edit" onclick="openEditProspect(this.getAttribute('data-pid'));closeModal('modal-prospect-detail')"><i class="material-icons" style="font-size:15px;">edit</i> Editar</button>
-      <button class="btn btn-success" id="pd-btn-convert" onclick="initProspectConversion(this.getAttribute('data-pid'));closeModal('modal-prospect-detail')">Converter em Venda</button>
-      <button class="btn btn-outline" onclick="closeModal('modal-prospect-detail')">Fechar</button>
-    </div>
-  </div>
-</div>
-
-</body></html>`);
+          </body></html>`);
           w.document.close();
           w.print();
         }
@@ -3366,156 +3195,51 @@ function buildNav() {
             document.getElementById('month-labels').innerHTML = months.map(mo => `<div style="flex:1;text-align:center"><div class="month-lbl">${mo.label}</div></div>`).join('');
         }
 
-        function clearAllSalesFilters() {
-            ['f-search','f-start-date','f-end-date','f-seller','f-status'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-            renderAll();
-        }
-
         function renderAll() {
             const search = (document.getElementById('f-search')?.value || '').toLowerCase();
             const fSel = document.getElementById('f-seller')?.value || '';
             const fSt = document.getElementById('f-status')?.value || '';
-            const fStart = document.getElementById('f-start-date')?.value || '';
-            const fEnd = document.getElementById('f-end-date')?.value || '';
-
-            refreshSellerSelects();
 
             const activeSellersSetA = new Set(getActiveSellers().map(s => s.name));
-            let rows = sales.filter(s => {
-                if (fSel ? s.seller !== fSel : !activeSellersSetA.has(s.seller)) return false;
-                if (fSt && s.status !== fSt) return false;
-                if (search && !s.client.toLowerCase().includes(search)) return false;
-                if (fStart && s.date < fStart) return false;
-                if (fEnd && s.date > fEnd) return false;
-                return true;
-            });
+            let rows = sales.filter(s =>
+                (fSel ? s.seller === fSel : activeSellersSetA.has(s.seller)) &&
+                (!fSt || s.status === fSt) &&
+                (!search || s.client.toLowerCase().includes(search))
+            );
 
-            const hasDateFilter = fStart || fEnd;
-            const grid = document.getElementById('all-sales-grid');
-            const emptyEl = document.getElementById('all-sales-empty');
-
-            if (!rows.length) {
-                grid.style.display = 'none';
-                emptyEl.style.display = 'block';
-                emptyEl.innerHTML = `
-                    <div class="empty-period">
-                        <div class="empty-period-icon"><i class="material-icons">event_busy</i></div>
-                        <h4>${hasDateFilter ? 'Nenhuma venda neste período' : 'Nenhuma venda encontrada'}</h4>
-                        <p>${hasDateFilter ? 'Não há vendas registradas no intervalo de datas selecionado. Tente outro período.' : 'Ajuste os filtros para encontrar vendas.'}</p>
-                    </div>`;
-                return;
-            }
-            grid.style.display = 'grid';
-            emptyEl.style.display = 'none';
-
-            const statusClass = { 'Concluída': 'status-concluida', 'Em andamento': 'status-andamento', 'Cancelada': 'status-cancelada' };
-            grid.innerHTML = rows.map(s => `
-                <div class="sale-card ${statusClass[s.status] || ''}" onclick="openSaleDetail('${s.id}')">
-                    <div class="sale-card-top">
-                        <div>
-                            <div class="sale-card-client">${s.client}</div>
-                            <div class="sale-card-product">${s.product}</div>
-                        </div>
-                        <div class="sale-card-value">${fmtBRL(s.value)}</div>
-                    </div>
-                    <div class="sale-card-meta">
-                        ${sellerBadge(s.seller)}
-                        ${badgeStatus(s.status)}
-                        ${paymentBadge(s.payment)}
-                        <span class="sale-card-date"><i class="material-icons" style="font-size:12px;">calendar_today</i>${fmtDate(s.date)}</span>
-                    </div>
-                    ${s.obs ? `<div class="sale-card-obs"><i class="material-icons" style="font-size:14px;flex-shrink:0;color:var(--amber);">sticky_note_2</i><span>${s.obs}</span></div>` : ''}
-                    <div class="sale-card-actions" onclick="event.stopPropagation()">
-                        <button class="btn btn-outline" style="padding:4px 10px;font-size:11px;" onclick="openEditSale('${s.id}')"><i class="material-icons" style="font-size:13px;">edit</i> Editar</button>
-                        <button class="btn btn-danger" style="padding:4px 10px;font-size:11px;" onclick="deleteSale('${s.id}')">Excluir</button>
-                    </div>
-                </div>
+            document.getElementById('all-body').innerHTML = rows.map(s => `
+                <tr>
+                  <td>${sellerBadge(s.seller)}</td><td>${fmtDate(s.date)}</td><td>${s.client}</td><td>${s.product}</td><td>${fmtBRL(s.value)}</td>
+                  <td>${paymentBadge(s.payment)}</td>
+                  <td>${fmtBRL(commVal(s))}</td><td>${badgeStatus(s.status)}</td>
+                  <td>${s.obs ? `<span class="obs-pill"><i class="material-icons">sticky_note_2</i>${s.obs}</span>` : '<span style="color:var(--muted)">—</span>'}</td>
+                </tr>
             `).join('');
-        }
-
-        function openSaleDetail(id) {
-            const s = sales.find(x => x.id === id);
-            if (!s) return;
-            const u = Object.values(dynamicUsers).find(u => u.name === s.seller) || {};
-            document.getElementById('sd-title').textContent = s.client;
-            document.getElementById('sd-body').innerHTML = `
-                <div class="detail-section-title">Informações da Venda</div>
-                <div class="detail-modal-grid">
-                    <div class="detail-field"><label>Cliente</label><div class="detail-val">${s.client}</div></div>
-                    <div class="detail-field"><label>Data</label><div class="detail-val">${fmtDate(s.date)}</div></div>
-                    <div class="detail-field full"><label>Produto / Serviço</label><div class="detail-val">${s.product}</div></div>
-                    <div class="detail-field"><label>Valor</label><div class="detail-val" style="font-size:18px;font-weight:800;color:var(--accent)">${fmtBRL(s.value)}</div></div>
-                    <div class="detail-field"><label>Comissão (2,5%)</label><div class="detail-val" style="color:var(--green);font-weight:700">${fmtBRL(commVal(s))}</div></div>
-                    <div class="detail-field"><label>Status</label><div class="detail-val">${badgeStatus(s.status)}</div></div>
-                    <div class="detail-field"><label>Pagamento</label><div class="detail-val">${paymentBadge(s.payment)}</div></div>
-                    <div class="detail-field"><label>Vendedor</label><div class="detail-val">${sellerBadge(s.seller)}</div></div>
-                    ${s.obs ? `<div class="detail-field full"><label>Observações</label><div class="detail-val" style="background:var(--surface2);padding:10px 12px;border-radius:8px;">${s.obs}</div></div>` : ''}
-                    ${(s.parcelas && s.parcelas.length) ? `<div class="detail-field full"><label>Parcelas</label><div style="display:flex;flex-direction:column;gap:6px;margin-top:4px;">${s.parcelas.map(p=>`<div style="display:flex;justify-content:space-between;padding:6px 10px;background:var(--surface2);border-radius:6px;font-size:12px;"><span>${p.mes}/${p.ano}</span><span style="font-weight:600;">${fmtBRL(p.valor)}</span><span style="color:${p.pago?'var(--green)':'var(--amber)'}">${p.pago?'✅ Pago':'⏳ Pendente'}</span></div>`).join('')}</div></div>` : ''}
-                </div>
-            `;
-            openModal('modal-sale-detail');
         }
 
         // ═══════════════════════════════════
         // PROSPECÇÃO COMPLETA - LÓGICA
         // ═══════════════════════════════════
         const PROSPECT_REQUIRED_FIELDS = ['date', 'client', 'cnpj', 'segment', 'city', 'contact', 'phone', 'email', 'products', 'status', 'next', 'returndate'];
-        // Guarda os IDs já notificados de forma persistente (sobrevive a reload da página)
-        const NOTIFIED_STORAGE_KEY = 'fauko_notified_complete_prospects';
-        let notifiedCompleteProspects;
-        try {
-            notifiedCompleteProspects = new Set(JSON.parse(localStorage.getItem(NOTIFIED_STORAGE_KEY) || '[]'));
-        } catch (e) {
-            notifiedCompleteProspects = new Set();
-        }
-        function persistNotified() {
-            try { localStorage.setItem(NOTIFIED_STORAGE_KEY, JSON.stringify([...notifiedCompleteProspects])); } catch (e) {}
-        }
-
-        // Fila + limite de notificações visíveis ao mesmo tempo (evita empilhar dezenas na tela)
-        const MAX_VISIBLE_NOTIFS = 3;
-        const notifQueue = [];
-        let notifActiveCount = 0;
-        let firstProspectSnapshot = true;
+        const notifiedCompleteProspects = new Set();
 
         function isProspectComplete(p) {
             return PROSPECT_REQUIRED_FIELDS.every(f => p[f] && String(p[f]).trim() !== '');
         }
 
-        function repositionNotifications() {
-            const els = document.querySelectorAll('.master-notification');
-            els.forEach((el, i) => { el.style.top = (20 + i * 150) + 'px'; });
-        }
+        function showMasterNotification(p) {
+            if (!currentUser || currentUser.key !== 'master') return;
+            if (notifiedCompleteProspects.has(p.id)) return;
+            notifiedCompleteProspects.add(p.id);
 
-        function closeNotif(el) {
-            if (!el || !el.parentElement) return;
-            el.style.transition = 'opacity 0.3s, transform 0.3s';
-            el.style.opacity = '0';
-            el.style.transform = 'translateX(120%)';
-            setTimeout(() => {
-                el.remove();
-                notifActiveCount = Math.max(0, notifActiveCount - 1);
-                repositionNotifications();
-                processNotifQueue();
-            }, 300);
-        }
-
-        function processNotifQueue() {
-            while (notifActiveCount < MAX_VISIBLE_NOTIFS && notifQueue.length > 0) {
-                renderMasterNotification(notifQueue.shift());
-            }
-        }
-
-        function renderMasterNotification(p) {
-            notifActiveCount++;
             const now = new Date();
             const dtStr = now.toLocaleDateString('pt-BR') + ' às ' + now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
 
             const notif = document.createElement('div');
             notif.className = 'master-notification';
-            notif.style.cssText = 'top:' + (20 + (document.querySelectorAll('.master-notification').length) * 150) + 'px';
+            notif.style.cssText = 'top:' + (20 + document.querySelectorAll('.master-notification').length * 150) + 'px';
             notif.innerHTML = `
-                <button class="notif-close"><i class="material-icons" style="font-size:18px;">close</i></button>
+                <button class="notif-close" onclick="this.parentElement.remove()"><i class="material-icons" style="font-size:18px;">close</i></button>
                 <div class="notif-header">
                     <div class="notif-icon"><i class="material-icons" style="font-size:17px;">task_alt</i></div>
                     <div>
@@ -3529,39 +3253,17 @@ function buildNav() {
                     Concluída em: ${dtStr}
                 </div>
             `;
-            notif.querySelector('.notif-close').addEventListener('click', () => closeNotif(notif));
             document.body.appendChild(notif);
-            setTimeout(() => closeNotif(notif), 6000);
-        }
-
-        function showMasterNotification(p) {
-            if (!currentUser || currentUser.key !== 'master') return;
-            if (notifiedCompleteProspects.has(p.id)) return;
-            notifiedCompleteProspects.add(p.id);
-            persistNotified();
-            notifQueue.push(p);
-            processNotifQueue();
+            setTimeout(() => {
+                notif.style.transition = 'opacity 0.4s, transform 0.4s';
+                notif.style.opacity = '0';
+                notif.style.transform = 'translateX(120%)';
+                setTimeout(() => notif.remove(), 400);
+            }, 6000);
         }
 
         function checkAndNotifyCompleteProspects() {
             if (!currentUser || currentUser.key !== 'master') return;
-
-            // Na PRIMEIRA carga de dados, apenas registra o que já está completo
-            // como "já visto" — sem disparar notificação. Isso evita a enxurrada
-            // de avisos de prospecções antigas toda vez que a página é aberta.
-            if (firstProspectSnapshot) {
-                firstProspectSnapshot = false;
-                let changed = false;
-                prospects.forEach(p => {
-                    if (isProspectComplete(p) && !notifiedCompleteProspects.has(p.id)) {
-                        notifiedCompleteProspects.add(p.id);
-                        changed = true;
-                    }
-                });
-                if (changed) persistNotified();
-                return;
-            }
-
             prospects.forEach(p => {
                 if (isProspectComplete(p) && !notifiedCompleteProspects.has(p.id)) {
                     showMasterNotification(p);
@@ -3691,37 +3393,16 @@ function buildNav() {
                     </span>` : '';
             }
 
-            const apGrid = document.getElementById('all-prospects-grid');
-            const apEmpty = document.getElementById('all-prospects-empty');
+            document.getElementById('all-prospects-body').innerHTML = rows.length ? rows.map(p => {
+                const complete = isProspectComplete(p);
+                const completeBadge = complete ? '<span class="prospect-complete-badge"><i class="material-icons" style="font-size:10px;">verified</i>COMPLETO</span>' : '';
+                return `
+                <tr class="${complete ? 'prospect-complete' : ''}">
+                  <td>${fmtDate(p.date)}</td><td>${p.client}${completeBadge}</td><td>${p.cnpj || '—'}</td><td>${p.type || '—'}</td><td>${p.segment || '—'}</td><td>${p.city || '—'}</td><td>${p.contact || '—'}</td><td>${p.phone || '—'}</td><td>${p.products}</td><td>${badgeProspectStatus(p.status)}</td><td>${sellerBadge(p.seller)}</td>
+                  <td><button class="btn btn-danger" style="padding:4px 8px;" onclick="deleteProspect('${p.id}')">Remover</button></td>
+                </tr>`;
+            }).join('') : `<tr><td colspan="12"><div class="empty"><div class="empty-icon"><i class="material-icons">search_off</i></div><div class="empty-text">Nenhuma prospecção encontrada para os filtros selecionados.</div></div></td></tr>`;
 
-            if (!rows.length) {
-                if(apGrid) apGrid.style.display='none';
-                if(apEmpty){ apEmpty.style.display='block'; apEmpty.innerHTML=`<div class="empty-period"><div class="empty-period-icon"><i class="material-icons">person_search</i></div><h4>Nenhuma prospecção encontrada</h4><p>Nenhum lead corresponde aos filtros selecionados.</p></div>`;}
-            } else {
-                if(apGrid) apGrid.style.display='grid';
-                if(apEmpty) apEmpty.style.display='none';
-                apGrid.innerHTML = rows.map(p => {
-                    const complete = isProspectComplete(p);
-                    return `<div class="prospect-card${complete?' prospect-complete':''}" onclick="openProspectDetail('${p.id}','master')">
-                        <div class="prospect-card-header">
-                            <div>
-                                <div class="prospect-card-client">${p.client}${complete?'<span class="prospect-complete-badge" style="margin-left:6px;"><i class="material-icons" style="font-size:10px;">verified</i>COMPLETO</span>':''}</div>
-                                <div style="font-size:11px;color:var(--muted);margin-top:2px;">${fmtDate(p.date)}</div>
-                            </div>
-                            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">${badgeProspectStatus(p.status)}${sellerBadge(p.seller)}</div>
-                        </div>
-                        <div class="prospect-card-info">
-                            <div class="prospect-card-field"><span>Interesse</span><span>${p.products || '—'}</span></div>
-                            <div class="prospect-card-field"><span>Cidade</span><span>${p.city || '—'}</span></div>
-                            <div class="prospect-card-field"><span>Contato</span><span>${p.contact || '—'}</span></div>
-                            <div class="prospect-card-field"><span>Retorno</span><span>${fmtDate(p.returndate) || '—'}</span></div>
-                        </div>
-                        <div class="prospect-card-actions" onclick="event.stopPropagation()">
-                            <button class="btn btn-danger" style="padding:4px 10px;font-size:11px;" onclick="deleteProspect('${p.id}')">Remover</button>
-                        </div>
-                    </div>`;
-                }).join('');
-            }
             checkAndNotifyCompleteProspects();
         }
 
@@ -3973,34 +3654,23 @@ function updateUserColor(key,color){
                 <div class="my-stat"><div class="ms-lbl">Comissão${filterParts.length ? ' do período' : ' aproximada'}</div><div class="ms-val" style="color:var(--green)">${fmtBRL(periodActive.reduce((a, s) => a + commVal(s), 0))}</div></div>
             `;
 
-            const myGrid = document.getElementById('my-sales-grid');
-            if (myGrid) {
-                if (!mine.length) {
-                    myGrid.innerHTML = `<div class="empty-period" style="grid-column:1/-1"><div class="empty-period-icon"><i class="material-icons">assignment_late</i></div><h4>Nenhuma venda encontrada</h4><p>Nenhuma venda para o período selecionado.</p></div>`;
-                } else {
-                    const statusClass2 = { 'Concluída': 'status-concluida', 'Em andamento': 'status-andamento', 'Cancelada': 'status-cancelada' };
-                    myGrid.innerHTML = mine.map(s => `
-                        <div class="sale-card ${statusClass2[s.status]||''}" onclick="openSaleDetail('${s.id}')">
-                            <div class="sale-card-top">
-                                <div>
-                                    <div class="sale-card-client">${s.client}</div>
-                                    <div class="sale-card-product">${s.product}</div>
-                                </div>
-                                <div class="sale-card-value">${fmtBRL(s.value)}</div>
-                            </div>
-                            <div class="sale-card-meta">
-                                ${badgeStatus(s.status)}
-                                ${paymentBadge(s.payment)}
-                                <span class="sale-card-date"><i class="material-icons" style="font-size:12px;">calendar_today</i>${fmtDate(s.date)}</span>
-                            </div>
-                            ${s.obs ? `<div class="sale-card-obs"><i class="material-icons" style="font-size:14px;flex-shrink:0;color:var(--amber);">sticky_note_2</i><span>${s.obs}</span></div>` : ''}
-                            <div class="sale-card-actions" onclick="event.stopPropagation()">
-                                <button class="btn btn-outline" style="padding:4px 10px;font-size:11px;" onclick="openEditSale('${s.id}')"><i class="material-icons" style="font-size:13px;">edit</i> Editar</button>
-                                <button class="btn btn-danger" style="padding:4px 10px;font-size:11px;" onclick="deleteSale('${s.id}')">Excluir</button>
-                            </div>
-                        </div>
-                    `).join('');
-                }
+            if (!mine.length) {
+                document.getElementById('my-body').innerHTML = `<tr><td colspan="8"><div class="empty"><div class="empty-icon"><i class="material-icons">assignment_late</i></div><div class="empty-text">Nenhuma venda encontrada para o período selecionado.</div></div></td></tr>`;
+            } else {
+                document.getElementById('my-body').innerHTML = mine.map(s => `
+                  <tr>
+                    <td>${fmtDate(s.date)}</td><td>${s.client}</td><td>${s.product}</td><td>${fmtBRL(s.value)}</td>
+                    <td>${paymentBadge(s.payment)}</td>
+                    <td>${badgeStatus(s.status)}</td>
+                    <td>${s.obs ? `<span class="obs-pill"><i class="material-icons">sticky_note_2</i>${s.obs}</span>` : '<span style="color:var(--muted)">—</span>'}</td>
+                    <td>
+                      <div style="display:flex;gap:6px;">
+                        <button class="btn btn-outline" style="padding:4px 8px;font-size:11px;" onclick="openEditSale('${s.id}')"><i class="material-icons" style="font-size:13px;">edit</i> Editar</button>
+                        <button class="btn btn-danger" style="padding:4px 8px;font-size:11px;" onclick="deleteSale('${s.id}')">Excluir</button>
+                      </div>
+                    </td>
+                  </tr>
+                `).join('');
             }
 
             renderGoal(total);
@@ -4073,35 +3743,33 @@ function updateUserColor(key,color){
                 <div class="my-stat"><div class="ms-lbl">Convertidos</div><div class="ms-val" style="color:var(--green)">${allMine.filter(p => p.status === 'Convertido').length}</div></div>
             `;
 
-            const mpGrid = document.getElementById('my-prospects-grid');
-            if (mpGrid) {
-                if (!activeLeads.length) {
-                    mpGrid.innerHTML = `<div class="empty-period" style="grid-column:1/-1"><div class="empty-period-icon"><i class="material-icons">search_off</i></div><h4>Nenhum lead ativo</h4><p>Nenhum lead encontrado com os filtros selecionados.</p></div>`;
-                } else {
-                    mpGrid.innerHTML = activeLeads.map(p => {
-                        const complete = isProspectComplete(p);
-                        return `<div class="prospect-card${complete?' prospect-complete':''}" onclick="openProspectDetail('${p.id}','seller')">
-                            <div class="prospect-card-header">
-                                <div>
-                                    <div class="prospect-card-client">${p.client}${complete?'<span class="prospect-complete-badge" style="margin-left:6px;"><i class="material-icons" style="font-size:10px;">verified</i>COMPLETO</span>':''}</div>
-                                    <div style="font-size:11px;color:var(--muted);margin-top:2px;">${fmtDate(p.date)}</div>
-                                </div>
-                                ${badgeProspectStatus(p.status)}
-                            </div>
-                            <div class="prospect-card-info">
-                                <div class="prospect-card-field"><span>Interesse</span><span>${p.products||'—'}</span></div>
-                                <div class="prospect-card-field"><span>Cidade</span><span>${p.city||'—'}</span></div>
-                                <div class="prospect-card-field"><span>Contato</span><span>${p.contact||'—'}</span></div>
-                                <div class="prospect-card-field"><span>Retorno</span><span>${fmtDate(p.returndate)||'—'}</span></div>
-                            </div>
-                            <div class="prospect-card-actions" onclick="event.stopPropagation()">
-                                <button class="btn btn-outline" style="padding:4px 10px;font-size:11px;" onclick="openEditProspect('${p.id}')"><i class="material-icons" style="font-size:13px;">edit</i> Editar</button>
-                                <button class="btn btn-success" style="padding:4px 10px;font-size:11px;" onclick="initProspectConversion('${p.id}')">Converter</button>
-                                <button class="btn btn-danger" style="padding:4px 10px;font-size:11px;" onclick="deleteProspect('${p.id}')">Remover</button>
-                            </div>
-                        </div>`;
-                    }).join('');
-                }
+            if (!activeLeads.length) {
+                document.getElementById('my-prospects-body').innerHTML = `<tr><td colspan="12"><div class="empty"><div class="empty-icon"><i class="material-icons">search_off</i></div><div class="empty-text">Nenhum lead ativo encontrado.</div></div></td></tr>`;
+            } else {
+                document.getElementById('my-prospects-body').innerHTML = activeLeads.map(p => {
+                    const complete = isProspectComplete(p);
+                    const completeBadge = complete ? '<span class="prospect-complete-badge"><i class="material-icons" style="font-size:10px;">verified</i>COMPLETO</span>' : '';
+                    return `<tr class="${complete ? 'prospect-complete' : ''}">
+                      <td>${fmtDate(p.date)}</td>
+                      <td>${p.client}${completeBadge}</td>
+                      <td>${p.cnpj || '—'}</td>
+                      <td>${p.segment || '—'}</td>
+                      <td>${p.city || '—'}</td>
+                      <td>${p.contact || '—'}<br><span style="font-size:11px;color:var(--muted);">${p.phone || ''}</span></td>
+                      <td>${p.products}</td>
+                      <td>${badgeProspectStatus(p.status)}</td>
+                      <td>${p.next || '—'}</td>
+                      <td>${fmtDate(p.returndate)}</td>
+                      <td>${p.obs ? `<span class="obs-pill"><i class="material-icons">sticky_note_2</i>${p.obs}</span>` : '<span style="color:var(--muted)">—</span>'}</td>
+                      <td>
+                        <div style="display:flex; gap:6px; flex-wrap:wrap;">
+                          <button class="btn btn-outline" style="padding:4px 8px; font-size:11px;" onclick="openEditProspect('${p.id}')"><i class="material-icons" style="font-size:13px;">edit</i> Editar</button>
+                          <button class="btn btn-success" style="padding:4px 8px; font-size:11px;" onclick="initProspectConversion('${p.id}')">Converter</button>
+                          <button class="btn btn-danger" style="padding:4px 8px; font-size:11px;" onclick="deleteProspect('${p.id}')">Remover</button>
+                        </div>
+                      </td>
+                    </tr>`;
+                }).join('');
             }
 
             // CORREÇÃO: Renderização limpa dos Cards de Conversão de Sucesso na aba de prospecções
@@ -4424,51 +4092,6 @@ function updateUserColor(key,color){
                 if (document.getElementById('nv-product')) document.getElementById('nv-product').value = p.products;
             }, 100);
         }
-
-        // ═══════════════════════════════════
-        // MODAL DE DETALHE DE VENDA / PROSPECÇÃO
-        // ═══════════════════════════════════
-        function openProspectDetail(id, mode) {
-            const p = prospects.find(x => x.id === id);
-            if (!p) return;
-            document.getElementById('pd-title').textContent = p.client;
-            document.getElementById('pd-body').innerHTML = `
-                <div class="detail-section-title">Dados da Empresa</div>
-                <div class="detail-modal-grid">
-                    <div class="detail-field"><label>Empresa / Cliente</label><div class="detail-val">${p.client}</div></div>
-                    <div class="detail-field"><label>CNPJ</label><div class="detail-val">${p.cnpj||'—'}</div></div>
-                    <div class="detail-field"><label>Tipo</label><div class="detail-val">${p.type||'—'}</div></div>
-                    <div class="detail-field"><label>Segmento</label><div class="detail-val">${p.segment||'—'}</div></div>
-                    <div class="detail-field"><label>Cidade / UF</label><div class="detail-val">${p.city||'—'}</div></div>
-                    <div class="detail-field"><label>Data de Entrada</label><div class="detail-val">${fmtDate(p.date)}</div></div>
-                </div>
-                <div class="detail-section-title">Contato</div>
-                <div class="detail-modal-grid">
-                    <div class="detail-field"><label>Nome do Contato</label><div class="detail-val">${p.contact||'—'}</div></div>
-                    <div class="detail-field"><label>Cargo</label><div class="detail-val">${p.role||'—'}</div></div>
-                    <div class="detail-field"><label>Telefone</label><div class="detail-val">${p.phone||'—'}</div></div>
-                    <div class="detail-field"><label>E-mail</label><div class="detail-val">${p.email||'—'}</div></div>
-                    <div class="detail-field"><label>Origem do Lead</label><div class="detail-val">${p.origin||'—'}</div></div>
-                    <div class="detail-field"><label>Meio de Contato</label><div class="detail-val">${p.method||'—'}</div></div>
-                </div>
-                <div class="detail-section-title">Negociação</div>
-                <div class="detail-modal-grid">
-                    <div class="detail-field full"><label>Interesse / Produtos</label><div class="detail-val">${p.products||'—'}</div></div>
-                    <div class="detail-field"><label>Status</label><div class="detail-val">${badgeProspectStatus(p.status)}</div></div>
-                    <div class="detail-field"><label>Responsável</label><div class="detail-val">${sellerBadge(p.seller)}</div></div>
-                    <div class="detail-field full"><label>Próxima Ação</label><div class="detail-val">${p.next||'—'}</div></div>
-                    <div class="detail-field"><label>Data de Retorno</label><div class="detail-val">${fmtDate(p.returndate)||'—'}</div></div>
-                    ${p.obs ? `<div class="detail-field full"><label>Observações</label><div class="detail-val" style="background:var(--surface2);padding:10px 12px;border-radius:8px;">${p.obs}</div></div>` : ''}
-                </div>
-            `;
-            // Mostrar ou ocultar botões dependendo do perfil
-            const pdEdit = document.getElementById('pd-btn-edit');
-            const pdConvert = document.getElementById('pd-btn-convert');
-            if (pdEdit) pdEdit.setAttribute('data-pid', id);
-            if (pdConvert) pdConvert.setAttribute('data-pid', id);
-            openModal('modal-prospect-detail');
-        }
-
         // Os ouvintes do Firebase já estão configurados em initFirebaseListeners() acima.
         function toggleAuthFields() {
             const role = document.getElementById('nu-role').value;
