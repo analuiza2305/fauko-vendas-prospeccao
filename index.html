@@ -592,6 +592,54 @@
             position: sticky;
             top: 0;
             z-index: 50;
+            gap: 12px;
+        }
+
+        .hamburger-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text);
+            padding: 6px;
+            border-radius: var(--r-sm);
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .hamburger-btn:hover {
+            background: var(--surface2);
+        }
+
+        .sidebar-close {
+            display: none;
+            margin-left: auto;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.6);
+            padding: 4px;
+            border-radius: var(--r-sm);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sidebar-close:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+        }
+
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 15, 35, 0.5);
+            z-index: 99;
+        }
+
+        .sidebar-overlay.open {
+            display: block;
         }
 
         .topbar-title h1 {
@@ -1702,6 +1750,237 @@
  padding:12px;
  margin-bottom:10px;
 }
+
+        /* ═══════════════════════════════════
+           RESPONSIVO — TABLET (≤ 968px)
+        ═══════════════════════════════════ */
+        @media (max-width: 968px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+
+            .my-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            #all-sales-grid,
+            #all-prospects-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* ═══════════════════════════════════
+           RESPONSIVO — MOBILE (≤ 768px)
+           Menu hamburguer / sidebar off-canvas
+        ═══════════════════════════════════ */
+        @media (max-width: 768px) {
+
+            .login-left {
+                width: 100%;
+                padding: 36px 24px;
+            }
+
+            .login-left::before {
+                width: 240px;
+                height: 240px;
+                top: -80px;
+                right: -80px;
+            }
+
+            #login-screen {
+                flex-direction: column;
+                min-height: 100vh;
+                overflow-y: auto;
+            }
+
+            .login-brand .logo {
+                margin-bottom: 24px;
+            }
+
+            .login-headline {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .login-right {
+                padding: 28px 20px 40px;
+            }
+
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.25s ease;
+                width: 260px;
+                z-index: 100;
+                box-shadow: 0 0 40px rgba(0,0,0,0.35);
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .sidebar-close {
+                display: flex;
+            }
+
+            .sidebar-brand {
+                align-items: center;
+            }
+
+            .hamburger-btn {
+                display: flex;
+            }
+
+            .main-wrap {
+                margin-left: 0;
+                width: 100%;
+                min-width: 0;
+            }
+
+            .topbar {
+                padding: 12px 16px;
+            }
+
+            .topbar-title h1 {
+                font-size: 16px;
+            }
+
+            .topbar-title p {
+                font-size: 11px;
+            }
+
+            .topbar-actions {
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                gap: 6px;
+            }
+
+            .content {
+                padding: 16px 14px 32px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .my-stats {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .stat-card {
+                padding: 16px 18px;
+            }
+
+            .stat-value {
+                font-size: 22px;
+            }
+
+            #all-sales-grid,
+            #all-prospects-grid {
+                grid-template-columns: 1fr !important;
+                gap: 12px !important;
+            }
+
+            .filter-bar {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+            }
+
+            .filter-bar input,
+            .filter-bar select,
+            .filter-bar .btn,
+            .filter-bar .date-filter-group {
+                width: 100%;
+            }
+
+            .filter-bar > span {
+                margin-bottom: -2px;
+            }
+
+            .date-filter-group {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            #p-reports > div[style*="justify-content:space-between"] {
+                flex-direction: column;
+                align-items: stretch !important;
+            }
+
+            #p-reports .filter-bar {
+                width: 100%;
+            }
+
+            .btn-print {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .modal-overlay {
+                padding: 0;
+                align-items: flex-end;
+            }
+
+            .modal-box {
+                max-width: 100% !important;
+                width: 100%;
+                max-height: 92vh;
+                border-radius: 16px 16px 0 0;
+            }
+
+            .modal-body {
+                padding: 18px;
+            }
+
+            .modal-header,
+            .modal-footer {
+                padding: 14px 18px;
+            }
+
+            .modal-footer {
+                flex-wrap: wrap;
+            }
+
+            .modal-footer .btn {
+                flex: 1;
+                justify-content: center;
+            }
+
+            .detail-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            table {
+                font-size: 12.5px;
+            }
+
+            .card-header {
+                padding: 14px 16px;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .card-header h3 {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .my-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .login-headline {
+                font-size: 21px;
+            }
+
+            .stat-value {
+                font-size: 20px;
+            }
+        }
 </style>
 </head>
 
@@ -1757,11 +2036,15 @@
 
     <!-- ═══ APP ═══ -->
     <div id="app">
-        <aside class="sidebar">
+        <div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
+        <aside class="sidebar" id="sidebar">
             <div class="sidebar-brand">
                 <div class="logo-icon" style="width:32px;height:32px;"><i class="material-icons"
                         style="font-size:18px;">bar_chart</i></div>
                 <span class="logo-name">FAUKO Dashboard</span>
+                <button class="sidebar-close" id="sidebar-close-btn" onclick="closeSidebar()" aria-label="Fechar menu">
+                    <i class="material-icons">close</i>
+                </button>
             </div>
 
             <div class="sb-user">
@@ -1785,6 +2068,9 @@
 
         <div class="main-wrap">
             <div class="topbar">
+                <button class="hamburger-btn" id="hamburger-btn" onclick="openSidebar()" aria-label="Abrir menu">
+                    <i class="material-icons">menu</i>
+                </button>
                 <div class="topbar-title">
                     <h1 id="page-title"></h1>
                     <p id="page-sub"></p>
@@ -3144,9 +3430,24 @@ function buildNav() {
             'new-prospect': { title: 'Nova Prospecção', sub: 'Mapear novo lead no mercado' }
         };
 
+        function openSidebar() {
+            document.getElementById('sidebar').classList.add('open');
+            document.getElementById('sidebar-overlay').classList.add('open');
+        }
+
+        function closeSidebar() {
+            document.getElementById('sidebar').classList.remove('open');
+            document.getElementById('sidebar-overlay').classList.remove('open');
+        }
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) closeSidebar();
+        });
+
         function goTo(page) {
             if(page==='evaluation') setTimeout(renderEvaluationPage,100);
             currentPage = page;
+            closeSidebar();
             document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
 
